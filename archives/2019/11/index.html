@@ -6,16 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>个人笔记-pygame | Rechard&#39;s Blog</title>
+  <title>Archives: 2019/11 | Rechard&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pygame在pygeme学习过程中的笔记。内容已标记出处，不作商业用途。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="个人笔记-pygame">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0-pygame&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Rechard&#39;s Blog">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
 <meta property="og:site_name" content="Rechard&#39;s Blog">
-<meta property="og:description" content="pygame在pygeme学习过程中的笔记。内容已标记出处，不作商业用途。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T03:51:37.455Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Rechard&#39;s Blog" type="application/atom+xml">
@@ -142,283 +139,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-个人笔记-pygame" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      个人笔记-pygame
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/01/PyQt%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2019-11-01T01:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/01/PyQt%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">PyQt框架学习</a>
     </h1>
   
 
-        
-        <a href="/2019/10/30/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0-pygame/" class="archive-article-date">
-  	<time datetime="2019-10-30T03:31:22.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="pygame"><a href="#pygame" class="headerlink" title="pygame"></a>pygame</h1><p>在pygeme学习过程中的笔记。内容已标记出处，不作商业用途。</p>
-<a id="more"></a>
+        <div class="article-info info-on-right">
+          
+          
 
-<h2 id="1-精灵类-sprite："><a href="#1-精灵类-sprite：" class="headerlink" title="1.精灵类 sprite："></a>1.精灵类 sprite：</h2><p>​    sprite.Sprite： 存储 图像数据 image 和 位置 rect 的 对象 </p>
-<h2 id="2-Rect类"><a href="#2-Rect类" class="headerlink" title="2.Rect类"></a>2.Rect类</h2><p>属性：</p>
-<p>1.返回一个坐标数字<br>x,y<br>top, left, bottom, right<br>centerx, centerysize<br>width, height<br>w,h;<br>2.返回一个（X,Y）坐标数组<br>topleft （左上）<br>bottomleft （左下）<br>bottomright （右下）<br>midtop（中上）<br>midleft（左中）<br>midbottom（底中）<br>midright（右中）<br>center（中心点坐标）</p>
-<p>方法：</p>
-<p>pygame.Rect.copy - 复制<br>pygame.Rect.move - 移动<br>pygame.Rect.move_ip - 移动矩形，就位<br>pygame.Rect.inflate - 增大或缩小矩形大小<br>pygame.Rect.inflate_ip - 增大或缩小矩形大小，就位<br>pygame.Rect.clamp - 将矩形移动到另一个内部<br>pygame.Rect.clamp_ip - 将矩形移动到另一个位置<br>pygame.Rect.clip - 在另一个内部收割一个矩形<br>pygame.Rect.union - 将两个矩形合并为一个<br>pygame.Rect.union_ip - 将两个矩形合并为一个，就位<br>pygame.Rect.unionall - 许多矩形的联合<br>pygame.Rect.unionall_ip - 许多矩形的联合，就位<br>pygame.Rect.fit - 调整大小并移动长宽比的矩形<br>pygame.Rect.normalize - 正确的负尺寸<br>pygame.Rect.contains - 测试一个矩形是否在另一个矩形内<br>pygame.Rect.collidepoint - 测试一个点是否在矩形内<br>pygame.Rect.colliderect - 测试两个矩形是否重叠<br>pygame.Rect.collidelist - 测试列表中的一个矩形是否相交<br>pygame.Rect.collidelistall - 测试列表中的所有矩形是否相交<br>pygame.Rect.collidedict - 测试字典中的一个矩形是否相交<br>pygame.Rect.collidedictall - 测试字典中的所有矩形是否相交</p>
-<p>版权声明：本文为CSDN博主「Kakukiri」的原创文章<br>原文链接：<a href="https://blog.csdn.net/qq_39546430/article/details/80407817" target="_blank" rel="noopener">https://blog.csdn.net/qq_39546430/article/details/80407817</a></p>
-<p>————————————————</p>
-<h2 id="3-display类"><a href="#3-display类" class="headerlink" title="3.display类"></a>3.display类</h2><p>Pygame 中用于控制窗口和屏幕显示的模块。</p>
-<p>注：为了适应语境，display 在该文档中有时翻译为“显示”，有时翻译为“显示界面”。</p>
-<p>函数<br>pygame.display.init()  —  初始化 display 模块<br>pygame.display.quit()  —  结束 display 模块<br>pygame.display.get_init()  —  如果 display 模块已经初始化，返回 True<br>pygame.display.set_mode()  —  初始化一个准备显示的窗口或屏幕<br>pygame.display.get_surface()  —  获取当前显示的 Surface 对象<br>pygame.display.flip()  —  更新整个待显示的  Surface 对象到屏幕上<br>pygame.display.update()  —  更新部分软件界面显示<br>pygame.display.get_driver()  —  获取 Pygame 显示后端的名字<br>pygame.display.Info()  —  创建有关显示界面的信息对象<br>pygame.display.get_wm_info()  —  获取关于当前窗口系统的信息<br>pygame.display.list_modes()  —  获取全屏模式下可使用的分辨率<br>pygame.display.mode_ok()  —  为显示模式选择最合适的颜色深度<br>pygame.display.gl_get_attribute()  —  获取当前显示界面 OpenGL 的属性值<br>pygame.display.gl_set_attribute()  —  设置当前显示模式的 OpenGL 属性值<br>pygame.display.get_active()  —  当前显示界面显示在屏幕上时返回 True<br>pygame.display.iconify()  —  最小化显示的  Surface 对象<br>pygame.display.toggle_fullscreen()  —  切换全屏模式和窗口模式<br>pygame.display.set_gamma()  —  修改硬件显示的 gama 坡道<br>pygame.display.set_gamma_ramp()  —  自定义修改硬件显示的 gama 坡道<br>pygame.display.set_icon()  —  修改显示窗口的图标<br>pygame.display.set_caption()  —  Set the current window caption<br>pygame.display.get_caption()  —  Get the current window caption<br>pygame.display.set_palette()  —  Set the display color palette for indexed displays<br>这个模块提供控制 Pygame 显示界面（display）的各种函数。Pygame 的  Surface  对象即可显示为一个窗口，也可以全屏模式显示。当你创建并显示一个常规的  Surface  对象后，在该对象上的改变并不会立刻反映到可见屏幕上，你必须选择一个翻转函数来显示改动后的画面。</p>
-<p>显示的原点是 (x=0, y=0) 的位置，及屏幕的左上角，坐标轴向右下角增长。</p>
-<p>Pygame 的 display 事实上可以有几种初始化的方式。默认情况下，display 作为一个软件驱动的帧缓冲区。除此之外，你可以使用硬件加速和 OpenGL 支持的特殊模块。这些是通过给 pygame.display.set_mode() 传入 flags 参数来控制的。</p>
-<p>Pygame 在任何时间内都只允许有一个显示界面。使用 pygame.display.set_mode() 创建的新显示界面会自动替换掉旧的。如果需要精确控制像素格式或显示分辨率，使用 pygame.display.mode_ok()，pygame.display.list_modes()，和 pygame.display.Info() 来查询显示界面相关的信息。</p>
-<p>一旦  Surface  对象的显示界面被创建出来，这个模块的函数就只影响当前的显示界面。如果该模块未初始化， Surface  对象也会变为“非法”。如果新的显示模式被设置，当前的  Surface  对象将会自动切换到新的显示界面。</p>
-<p>当一个新的显示模式被设置，会在 Pygame 的事件队列中放入几个相关事件。当用于希望关闭程序时，pygame.QUIT 事件会被发送；当显示界面获得和失去焦点时，窗口会得到 pygame.ACTIVEEVENT 事件；如果显示界面设置了 pygame.RESIZABLE 标志，那么当用户调整窗口尺寸时，pygame.VIDEORESIZE 事件会被发送；硬件显示指当接收到 pygame.VIDEOEXPOSE 事件时，将部分需要被重绘的窗口直接绘制到屏幕上。</p>
-<p>一些显示环境拥有自动拉伸所有窗口的选项。当该选项被启动时，自动拉伸会扭曲 Pygame 窗口的外观。在 Pygame 的例子目录中，有一个演示代码（prevent_display_stretching.py）展示如何在微软系统（Vista 以上系统）中关闭 Pygame 显示的自动拉伸属性。</p>
-<p>函数详解<br>pygame.display.init()<br>初始化 display 模块。</p>
-<p>init() -&gt; None</p>
-<p>初始化 Pygame 的 display 模块。在初始化之前，display 模块无法做任何事情。但当你调用更高级别的 pygame.init()，变会自动调用 pygame.display.init() 进行初始化。</p>
-<p>初始化后，Pygame 将自动从几个内部的显示后端中选择一个。显示模式由平台和当前用户权限决定。在 display 模块被初始化之前，可以通过环境变量 SDL_VIDEODRIVER 设置哪一个显示后端将被使用。具有多种显示后端的系统如下：</p>
-<p>Windows : windib, directx<br>Unix : x11, dga, fbcon, directfb, ggi, vgl, svgalib, aalib</p>
-<p>在一些平台上，可以将 Pygame 的 display 嵌入到已经存在的窗口中。如果这么做，环境变量 SDL_WINDOWID 必须被设置为一个包含窗口 ID 或句柄的字符串。当 Pygame 的 display 被初始化的时候，将检测环境变量。注意，在一个运行的窗口嵌入 display 会产生许多奇怪的副作用。</p>
-<p>多次调用该函数并没有任何问题，但也不会有什么效果。</p>
-<p>pygame.display.quit()<br>结束 display 模块。</p>
-<p>quit() -&gt; None</p>
-<p>这个函数会关闭整个 display 模块。这将意味着任何一个活跃的显示界面都将被关闭。当主程序退出时，该函数也会被自动调用。</p>
-<p>多次调用该函数并没有任何问题，但也不会有什么效果。</p>
-<p>pygame.display.get_init()<br>如果 display 模块已经初始化，返回 True。</p>
-<p>get_init() -&gt; bool</p>
-<p>如果 display 模块已经初始化，返回 True。</p>
-<p>pygame.display.set_mode()<br>初始化一个准备显示的窗口或屏幕。</p>
-<p>set_mode(resolution=(0,0), flags=0, depth=0) -&gt; Surface</p>
-<p>这个函数将创建一个 Surface  对象的显示界面。传入的参数用于指定显示类型。最终创建出来的显示界面将是最大可能地匹配当前操作系统。</p>
-<p>resolution 参数是一个二元组，表示宽和高。flags 参数是附件选项的集合。depth 参数表示使用的颜色深度。</p>
-<p>返回的 Surface  对象可以像常规的 Surface  对象那样去绘制，但发生的改变最终会显示到屏幕上。</p>
-<p>如果没有传入 resolution 参数，或者使用默认设置 (0, 0)，且 Pygame 使用 SDL1.2.10 以上版本，那么创建出来的 Surface 对象将与当前屏幕用户一样的分辨率。如果只有宽或高其中一项被设置为 0，那么 Surface 对象将使用屏幕分辨率的宽或高代替它。如果 SDL 版本低于 1.2.10，那么将抛出异常。</p>
-<p>通常来说，最好的做法是不要传递 depth 参数。因为默认 Pygame 会根据当前操作系统选择最好和最快的颜色深度。如果你的游戏确实需要一个特殊的颜色格式，那么你可以通过控制 depth 参数来实现。Pygame 将为模拟一个非现成的颜色深度而耗费更多的时间。</p>
-<p>当使用全屏显示模式的时候，有时候无法完全匹配到需要的分辨率。在这种情况下，Pygame 将自动选择最匹配的分辨率使用，而返回的 Surface  对象将保持与需求的分辨率一致。</p>
-<p>flags 参数指定你想要的显示类型。提供几个选择给你，你可以通过位操作同时使用多个类型（管道操作符 “|”）。如果你传入 0 或没有传入 flags 参数，默认会使用软件驱动窗口。这儿是 flags 参数提供的几个可选项：</p>
-<p>选项</p>
-<p>含义</p>
-<p>pygame.FULLSCREEN    创建一个全屏显示<br>pygame.DOUBLEBUF    1. 双缓冲模式<br>2. 推荐和 HWSURFACE 或 OPENGL 一起使用<br>    pygame.HWSURFACE    硬件加速，只有在 FULLSCREEN 下可以使用<br>    pygame.OPENGL    创建一个 OPENGL 渲染的显示<br>    pygame.RESIZABLE    创建一个可调整尺寸的窗口<br>    pygame.NOFRAME    创建一个没有边框和控制按钮的窗口<br>举个例子：</p>
-<p>在屏幕中创建一个 700 * 400 的窗口</p>
-<p>screen_width=700<br>screen_height=400<br>screen=pygame.display.set_mode([screen_width, screen_height])<br>pygame.display.get_surface()<br>获取当前显示的 Surface 对象。</p>
-<p>get_surface() -&gt; Surface</p>
-<p>返回当前显示的 Surface  对象。如果没有设置任何显示模式，那么返回 None。</p>
-<p>pygame.display.flip()<br>更新整个待显示的 Surface 对象到屏幕上。</p>
-<p>flip() -&gt; None</p>
-<p>这个函数将更新整个显示界面的内容。如果你的显示模式使用了 pygame.HWSURFACE（硬件加速）和 pygame.DOUBLEBUF（双缓冲）标志，那么将等待垂直会扫并切换显示界面。如果你使用不同类型的显示模式，那么它将简单的更新整个显示界面的内容。</p>
-<p>当使用 pygame.OPENGL（使用 OPENGL 渲染）显示模式时，将创建一个 gl 缓冲切换区。</p>
-<p>温馨提示：垂直回扫是与视频显示相关的时间测量，它代表了一个帧的结束和下一帧的开始时间之间的时间间隔。</p>
-<p>pygame.display.update()<br>更新部分软件界面显示。</p>
-<p>update(rectangle=None) -&gt; None</p>
-<p>update(rectangle_list) -&gt; None</p>
-<p>这个函数可以看作是 pygame.display.flip() 函数在软件界面显示的优化版。它允许更新屏幕的部分内容，而不必完全更新。如果没有传入任何参数，那么该函数就像 pygame.display.flip() 那样更新整个界面。</p>
-<p>你可以传递一个或多个矩形区域给该函数。一次性传递多个矩形区域比多次传递更有效率。如果传入的是一个空列表或者 None，那么将忽略参数。</p>
-<p>该函数不能在 pygame.OPENGL 显示模式下调用，否则会抛出异常。</p>
-<p>pygame.display.get_driver()<br>获取 Pygame 显示后端的名字。</p>
-<p>get_driver() -&gt; name</p>
-<p>初始化的时候，Pygame 会从多个可用的显示后端中选择一个。这个函数返回显示后端内部使用的名字。可以用来提供有关显示性能加速的一些信息。可以参考 pygame.display.set_mode() 的 SDL_VIDEODRIVER 环境变量。</p>
-<p>pygame.display.Info()<br>创建有关显示界面的信息对象。</p>
-<p>Info() -&gt; VideoInfo</p>
-<p>创建一个对象，包含对当前图形环境一些属性的描述。在一些平台上，如果这个函数在 pygame.display.set_mode() 前被调用，可以提供一些关于默认显示模式的信息。也可以在设置完显示模式后调用该函数，以确认显示选项是否如愿以偿。</p>
-<p>返回的 VideoInfo 对象包含以下这些属性：</p>
-<p>属性</p>
-<p>含义</p>
-<p>hw    如果是 True，则表示启用硬件加速<br>wm    如果是 True，则表示显示窗口模式<br>video_mem    表示显存是多少兆字节（mb），0 表示不清楚<br>bitsize    表示每个像素存放多少位<br>bytesize    表示每个像素存放多少字节<br>masks    4 个值用于打包像素的 RGBA 值<br>shifts    4 个值用于打包像素的 RGBA 值<br>losses    4 个值用于打包像素的 RGBA 值<br>blit_hw    如果是 True，则表示加速硬件驱动的 Surface  对象绘制<br>blit_hw_CC    如果是 True，则表示加速硬件驱动的 Surface 对象 colorkey 绘制<br>blit_hw_A    如果是 True，则表示加速硬件驱动的 Surface  对象 pixel alpha 绘制<br>blit_sw    如果是 True，则表示加速软件驱动的 Surface 对象绘制<br>blit_sw_CC    如果是 True，则表示加速软件驱动的 Surface 对象 colorkey 绘制<br>blit_sw_A    如果是 True，则表示加速软件驱动的Surface 对象 pixel alpha 绘制<br>current_w, current_h    1. 表示当前显示模式的宽和高（如果在 display.set_mode() 前被调用，则表示当前桌面的宽和高）</p>
-<ol start="2">
-<li>current_w, current_h 在 Pygame 1.8.0 以后，SDL 1.2.10 以后才支持</li>
-<li>-1 表示错误，或者 SDL 版本太旧<br>pygame.display.get_wm_info()<br>获取关于当前窗口系统的信息。</li>
-</ol>
-<p>get_wm_info() -&gt; dict</p>
-<p>创建一个由操作系统填充数据的字典。一些操作系统可能不会往里边填充信息，则返回一个空字典。大多数平台将返回一个 “window” 键，对应的值是当前显示界面的系统 ID。</p>
-<p>Pygame 1.7.1 新增加的。</p>
-<p>pygame.display.list_modes()<br>获取全屏模式下可使用的分辨率。</p>
-<p>list_modes(depth=0, flags=pygame.FULLSCREEN) -&gt; list</p>
-<p>这个函数返回一个列表，包含指定颜色深度所支持的所有分辨率。如果显示模式非全屏，则返回一个空列表。如果返回 -1 表示支持任何分辨率（类似于窗口模式）。返回的列表由大到小排列。</p>
-<p>如果颜色深度是 0，SDL 将选择当前/最合适的颜色深度显示。flags 参数默认值是 pygame.FULLSCREEN，但你可能需要添加额外的全屏模式标志。</p>
-<p>pygame.display.mode_ok()<br>为显示模式选择最合适的颜色深度。</p>
-<p>mode_ok(size, flags=0, depth=0) -&gt; depth</p>
-<p>这个函数使用与 pygame.display.set_mode() 函数一样的参数。一般用于判断一个显示模式是否可用。如果显示模式无法设置，则返回 0。正常情况下将会返回显示需求的像素深度。</p>
-<p>通常不用理会 depth 参数，除非一些支持多个显示深度的平台，它会提示哪个颜色深度是更合适的。</p>
-<p>最有用的 flags 参数是 pygame.HWSURFACE，pygame.DOUBLEBUF 和 pygame.FULLSCREEN。如果这些标志不支持，那么该函数会返回 0。</p>
-<p>pygame.display.gl_get_attribute()<br>获取当前显示界面 OpenGL 的属性值。</p>
-<p>gl_get_attribute(flag) -&gt; value</p>
-<p>在调用设置了 pygame.OPENGL 标志的 pygame.display.set_mode() 函数之后，检查 OpenGL 的属性值不失为一个好的习惯。参考 pygame.display.gl_set_attribute() 关于合法标志的列表。</p>
-<p>pygame.display.gl_set_attribute()<br>设置当前显示模式的 OpenGL 属性值。</p>
-<p>gl_set_attribute(flag, value) -&gt; None</p>
-<p>当调用设置了 pygame.OPENGL 标志的 pygame.display.set_mode() 函数时，Pygame 会自动设置 OpenGL 的一些属性值，例如颜色和双缓冲区。OpenGL 其实还提供了其他一些属性值供你控制。在 flag 参数中传入属性名，并将其值设置在 value 参数中。这个函数必须在 pygame.display.set_mode() 前设置。</p>
-<p>这些 OPENGL 标志是：</p>
-<p>GL_ALPHA_SIZE, GL_DEPTH_SIZE, GL_STENCIL_SIZE, GL_ACCUM_RED_SIZE,<br>GL_ACCUM_GREEN_SIZE,  GL_ACCUM_BLUE_SIZE, GL_ACCUM_ALPHA_SIZE,<br>GL_MULTISAMPLEBUFFERS, GL_MULTISAMPLESAMPLES, GL_STEREO</p>
-<p>pygame.display.get_active()<br>当前显示界面显示在屏幕上时返回 True。</p>
-<p>get_active() -&gt; bool</p>
-<p>pygame.display.set_mode() 函数被调用之后，Surface 对象将被显示在屏幕上。大多数窗口都支持隐藏，如果显示的 Surface  对象被隐藏和最小化，那么该函数将返回 False。</p>
-<p>pygame.display.iconify()<br>最小化显示的 Surface  对象。</p>
-<p>iconify() -&gt; bool</p>
-<p>将显示的Surface 对象最小化或隐藏。并不是所有的操作系统都支持最小化显示界面。如果该函数调用成功，返回 True。</p>
-<p>当显示界面最小化时，pygame.display.get_active() 返回 False。事件队列将接收到 ACTIVEEVENT 事件。</p>
-<p>pygame.display.toggle_fullscreen()<br>切换全屏模式和窗口模式。</p>
-<p>toggle_fullscreen() -&gt; bool</p>
-<p>切换全屏模式和窗口模式。这个函数只在 unix x11 显示驱动下工作。在大多数情况下，建议调用 pygame.display.set_mode() 创建一个新的显示模式进行切换。</p>
-<p>pygame.display.set_gamma()<br>修改硬件显示的 gama 坡道。</p>
-<p>set_gamma(red, green=None, blue=None) -&gt; bool</p>
-<p>设置硬件驱动显示的红色、绿色和蓝色伽马值。如果没有传递 green 和 blue 参数，它们将与 red 值相等。不是所有的操作系统和硬件都支持伽马坡道。如果函数修改成功，则返回 True。</p>
-<p>伽马值为 1.0 创建一个线性颜色表，较低的值会使屏幕变暗，较高的值会使屏幕变量。</p>
-<p>pygame.display.set_gamma_ramp()<br>自定义修改硬件显示的 gama 坡道</p>
-<p>set_gamma_ramp(red, green, blue) -&gt; bool</p>
-<p>使用自定义表设置硬件驱动显示的红色、绿色和蓝色伽马坡道。每个参数必须是 256 位整数的列表。每位整数应该在 0 和 0xffff 之间。不是所有的操作系统和硬件都支持伽马坡道。如果函数修改成功，则返回 True。</p>
-<p>pygame.display.set_icon()<br>修改显示窗口的图标。</p>
-<p>set_icon(Surface) -&gt; None</p>
-<p>设置显示窗口执行时的图标。所有的操作系统默认都是以简单的 Pygame LOGO 作为图标。</p>
-<p>你可以传入任何 Surface  对象作为图标，但大多数操作系统要求图标的大小是 32 * 32。图标可以设置 colorkey 透明度。</p>
-<p>一些操作系统不允许修改显示中的窗口图标。对于这类操作系统，该函数需要再调用 pygame.display.set_mode() 前先创建并设置图标。</p>
-<p>pygame.display.set_caption()<br>设置当前窗口的标题栏。</p>
-<p>set_caption(title, icontitle=None) -&gt; None</p>
-<p>如果显示窗口拥有一个标题栏，这个函数将修改窗口标题栏的文本。一些操作系统支持最小化窗口时切换标题栏，通过设置 icontitle 参数实现。</p>
-<p>pygame.display.get_caption()<br>获取当前窗口的标题栏。</p>
-<p>get_caption() -&gt; (title, icontitle)</p>
-<p>返回当前窗口的标题栏和最小化标题栏，通常这两个值是一样的。</p>
-<p>pygame.display.set_palette()<br>设置显示界面的调色板。</p>
-<p>set_palette(palette=None) -&gt; None</p>
-<p>这个函数将修改显示界面的 8 位调色板。这不会改变Surface 对象实际的调色板，仅用于 Surface 对象的显示。如果没有传入参数，将恢复系统默认调色板。调色板是一组 RGB 三元组序列。</p>
-<p>版权声明：本文为CSDN博主「来自江南的你」的原创文章。<br>原文链接：<a href="https://blog.csdn.net/qq_41556318/article/details/85952413" target="_blank" rel="noopener">https://blog.csdn.net/qq_41556318/article/details/85952413</a></p>
-<p>————————————————</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/30/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0-pygame/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/10/31/python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python第三方库安装问题合集
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/10/30/pygame%20practise%201-%E5%B0%8F%E6%81%90%E9%BE%99%E6%B8%B8%E6%88%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">pygame practise 1-小恐龙游戏</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pygame"><span class="toc-number">1.</span> <span class="toc-text">pygame</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-精灵类-sprite："><span class="toc-number">1.1.</span> <span class="toc-text">1.精灵类 sprite：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Rect类"><span class="toc-number">1.2.</span> <span class="toc-text">2.Rect类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-display类"><span class="toc-number">1.3.</span> <span class="toc-text">3.display类</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -453,8 +216,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
