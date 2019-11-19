@@ -161,25 +161,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="super-函数："><a href="#super-函数：" class="headerlink" title="super()函数："></a>super()函数：</h1><p>链接：<a href="https://www.runoob.com/python/python-func-super.html" target="_blank" rel="noopener">https://www.runoob.com/python/python-func-super.html</a></p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><strong>super()</strong> 函数是用于调用父类(超类)的一个方法。</p>
-<p>super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用（钻石继承）等种种问题。</p>
-<p>MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>以下是 super() 方法的语法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(type[, object-or-type])</span><br></pre></td></tr></table></figure>
-
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
-<li>type – 类。</li>
-<li>object-or-type – 类，一般是 self</li>
-</ul>
-<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>经典的菱形继承案例，BC 继承 A，然后 D 继承 BC，创造一个 D 的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     ---&gt; B ---</span><br><span class="line">A --|          |--&gt; D</span><br><span class="line">     ---&gt; C ---</span><br></pre></td></tr></table></figure>
-
-<p>使用 super() 可以很好地避免构造函数被调用两次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 思考题正确答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class A():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;enter A&apos;)</span><br><span class="line">        print(&apos;leave A&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class B(A):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;enter B&apos;)</span><br><span class="line">        super().__init__()</span><br><span class="line">        print(&apos;leave B&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class C(A):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;enter C&apos;)</span><br><span class="line">        super().__init__()</span><br><span class="line">        print(&apos;leave C&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class D(B, C):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;enter D&apos;)</span><br><span class="line">        super().__init__()</span><br><span class="line">        print(&apos;leave D&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = D()</span><br></pre></td></tr></table></figure>
-
-<p>执行结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">enter D</span><br><span class="line">enter B</span><br><span class="line">enter C</span><br><span class="line">enter A</span><br><span class="line">leave A</span><br><span class="line">leave C</span><br><span class="line">leave B</span><br><span class="line">leave D</span><br></pre></td></tr></table></figure>
+        <p>本文内容为个人学习笔记。</p>
+        
+          <a class="article-more-a" href="/2019/11/08/Python%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
       
 
       
