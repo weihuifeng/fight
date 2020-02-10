@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Rechard&#39;s Blog">
 <meta property="og:description" content="此文为个人学习笔记，主要内容参考《鸟哥的LINUX私房菜》第四版。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T07:46:15.297Z">
+<meta property="og:updated_time" content="2020-02-10T08:25:09.306Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Rechard&#39;s Blog" type="application/atom+xml">
@@ -180,456 +180,24 @@
 <h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>虚拟机：oracle公司VitualBox</p>
 <p>版本：社区版CentOS（下载地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/</a> ）</p>
 <h2 id="三、命令"><a href="#三、命令" class="headerlink" title="三、命令"></a>三、命令</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>command   [options]   parameter1   parameter2 ……</p>
-<h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><p>快捷键：</p>
-<p>​    tab 键： 直接按下两次：输出所有可执行命令</p>
-<p>​                   有字母按下 一次：补全命令</p>
-<p>​                   有字母按下两次：输出字母开头的所有可执行命令</p>
-<p>​    ctrl + c ： 中断目前的命令</p>
-<p>​    ctrl + d ： exit（键盘输入结束，End of File）</p>
-<p>日期    date  （Linux系统的时间）</p>
-<p>​        自定义输出格式：   date  +%Y%m%d</p>
-<p>日历（calendar）    cal    </p>
-<p>​        cal 2020</p>
-<p>​        cal [month] [year]    (注意顺序)</p>
-<p>修改硬件时间：hwclock –set –date=”20/01/26 14:55”</p>
-<p>​                或者：clock –set –date=”20/01/26 14:55”</p>
-<p>同步系统时间和硬件时间：hwclock –hctosys</p>
-<p>​                或者：clock –hctosys</p>
-<p>将硬件时间设置为系统时间：clock -s</p>
-<p>查看系统的运作时间：uptime</p>
-<p>查看命令信息：</p>
-<p>​                    （1）man (manual)  command</p>
-<p>​                            进入手册后空格下翻，q退出</p>
-<p>​                            /date（查找字符串‘date’），查找后：n（下一个匹配的字符串）</p>
-<p>​                            命令后面的编号含义：（如DATE(1)）：man man有详细说明</p>
-<p>​            查看系统中关于man的说明文件： man -f man</p>
-<p>​            关键字搜索：内容中有关键字‘test’的文件： man -k test</p>
-<p>​                    （2）：info command</p>
-<p>​                                  带<em>号表示结点，光标移动到\</em>按下ENTER可以跳转到该页面</p>
-<p>​                    （3）：软件的帮助文档一般可以在目录 /usr/share/doc 下查看</p>
-<p>​                                usr：unix system resources（may be user system resources）</p>
-<p>查看在线成员：who</p>
-<p>查看网络联机状态：netstat</p>
-<p>查看后台程序：ps（process snapshot）</p>
-<p>查看内核版本：uname -r</p>
-<p>查看系统架构：uname -m</p>
-<p>用户切换成管理员：su root （substitute user，需要输入管理员密码）</p>
-<p>​                                换回普通用户：su username</p>
-<p>​                                切换并使用新用户的环境变量：su -  username</p>
-<p>将数据同步写入硬盘中：sync（synchronize）管理员：整个系统；一般用户：自己的数据</p>
-<p>​            关机时会自动执行</p>
-<p>关机： halt、poweroff</p>
-<p>​            shutdown -h now （立刻执行）</p>
-<p>​            shutdown -h  22：22 （下一个22：22分关机）</p>
-<p>​            shutdown -h +10 （十分钟后自动关机）</p>
-<p>​            shutdown -r now  (立刻重启)</p>
-<p>​            shutdown -r +30 ‘This message will be sended to all user online’  (30分钟后关机并此刻将消                                   息发送给所有在线用户)</p>
-<p>​            shutdown -k now ‘This system will reboot’   (发送警告，但不关机)</p>
-<p>​            shutdown -c   （取消关机）</p>
-<p>重启：reboot</p>
-<p>以上关机重启命令都是通过调用系统服务命令实现：systemctlf</p>
-<p>​            关机：systemctl   poweroff               重启：systemctl   reboot        ……</p>
-<h3 id="DAY2"><a href="#DAY2" class="headerlink" title="DAY2"></a>DAY2</h3><p>文件与目录的查看：ls [-al]   fileName/directory</p>
-<p>​                                      a：所有文件；l：详细信息（权限，大小，所属用户、组，修改时间，文件名）</p>
-<p>​                                   ll：列出文件详细信息（除了隐藏文件）后面没有指定文件或路径则默认当前路径</p>
-<p>更改文件所属用户、组：chgrp [-R]  fileName/directory</p>
-<p>​                                            chown [-R]  userName   fileName</p>
-<p>​                                            chown [-R]  userName : groupName  fileName</p>
-<p>修改权限：chmod [-R]   xyz  fileName/directory</p>
-<p>​                    (1)chmod 777 test.txt</p>
-<p>​                    (2)chmod [ugoa][+-=][rwx]  fileName/directory</p>
-<p>​                            chmod u+x test.txt</p>
-<p>​                            chmod u=rwx,go=r test.txt</p>
-<p>​    r:能查看；x：能进入（执行）路径（文件）内</p>
-<p>. 当前目录</p>
-<p>.. 上一级目录</p>
-<p>- 前一个工作目录</p>
-<p>~ 当前用户的家目录</p>
-<p>cd（change directory）</p>
-<p>pwd（print working directory） [-P]   -P表示显示真实路径，而非link</p>
-<p>输出环境变量：echo $PATH</p>
-<p>添加环境变量：PATH=”${PATH}:/test“</p>
-<p>创建目录：mkdir [-mp] directoryName</p>
-<p>​                        mkdir -m 744 test  (创建时设置权限)；p：递归创建</p>
-<p>删除空目录：rmdir [-p]</p>
-<p>​        非空：    rm -r directoryName</p>
-<p>复制：cp [-aipr] source  destination</p>
-<p>​                -a 复制所有文件信息（权限、链接、递归复制）</p>
-<p>​                 -i 目标文件已经存在时先询问</p>
-<p>​                 -p 将文件的权限、用户、时间一起复制（常用来备份）</p>
-<p>​                 -r 递归复制</p>
-<p>​                 -d 复制链接文件的属性（即指向实际链接的文件）</p>
-<p>​                 -v 显示过程</p>
-<p>删除：rm [-fir] fileName/dirName</p>
-<p>​                f：强制</p>
-<p>​                i：是否询问</p>
-<p>​                r：递归删除</p>
-<p>移动（重命名）：(1)mv [-fiu] source destination</p>
-<p>​                                                f：强制移动，有相同文件时，目标文件删除</p>
-<p>​                                                u ：update目标文件（两者中保留时间最新的那个）</p>
-<p>​                                        重命名：mv test.txt test2.txt</p>
-<p>​                                (2)mv [options] source1 source2… directory</p>
-<p>​                                    将一堆文件移动到目录内</p>
-<p>查看文件内容：</p>
-<p>​                        (1) （concatenate）cat [-An] fileName</p>
-<p>​                                                                -A：显示特殊符号</p>
-<p>​                                                                -n：打印行号（-b：空白行不显示行号，非空白行显示行号）</p>
-<p>​                                                            反向输出：tac</p>
-<p>​                        (2) nl [-bnw]  fileName   (自动输出行号)</p>
-<p>​                                -b a : 空行也显示行号</p>
-<p>​                                -b t : 空行不显示行号</p>
-<p>​                                -n ln/rn : 在左侧/右侧显示行号</p>
-<p>​                                -n rz : 在右侧显示行号，且不足6位补0</p>
-<p>​                                -w  n: 行号的位数（n）    </p>
-<p>​    </p>
-<p>​    可翻页：</p>
-<p>​            (1) more</p>
-<p>​                    space:下翻一页</p>
-<p>​                    Enter:下翻一行</p>
-<p>​                    /string:查找字符串</p>
-<p>​                    :f   显示文件名和目前的行数</p>
-<p>​                    q:退出</p>
-<p>​                    b（ctrl+b）往回翻页</p>
-<p>​            (2) less</p>
-<p>​                    space：下翻一页                </p>
-<p>​                    pgUp：向上翻页</p>
-<p>​                    pgDw：向下翻页</p>
-<p>​                    /string：向下查找字符串</p>
-<p>​                    ？string：向上查找字符串</p>
-<p>​                    g：跳到第一行</p>
-<p>​    显示部分：</p>
-<p>​                (1) head [-n number]</p>
-<p>​                        显示前面number行（默认显示20行）</p>
-<p>​                (2) tail [-n number]</p>
-<p>​                        显示后面number行（默认显示10行）</p>
-<p>​                显示第11行到第20行：（管道）这时候[-n number]不能省略</p>
-<p>​                        head  -n 20 test.txt | tail -n 10</p>
-<p>​                上面的内容显示行号：</p>
-<p>​                        cat -n test.txt | head -n 20 | tail -n 10</p>
-<p>查看非文本文件：od -t [-acdfox]</p>
-<p>​                                -a 默认字符输出；-c ASCII码输出</p>
-<p>​                                d(decimal)   f(floating)  o(octal)   x(hexadecimal)</p>
-<h3 id="DAY3"><a href="#DAY3" class="headerlink" title="DAY3"></a>DAY3</h3><p>touch: (1) 创建新文件</p>
-<p>​            (2) 修改文件的修改时间和读取时间为当前时间</p>
-<p>默认权限： 文件的默认权限：-rwxr–r–</p>
-<p>​                    目录的默认权限：-rwxr-xr-x (x就是能进入该目录)</p>
-<p>​                    查看默认权限：umask   (数字就是没有的权限，第一个0表示八进制？)</p>
-<p>​                    设置默认权限：umask [1-7][1-7][1-7]</p>
-<p>了解：隐藏属性：配置隐藏属性(管理员账号)：chattr</p>
-<p>​                                查看隐藏属性：lsattr [-adR] fileName/dirName</p>
-<p>​            特殊权限：SUID,SGID,SBIT</p>
-<p>查看文件类型：file fileName</p>
-<p>查找命令所在的文件：which [-a] command</p>
-<p>查找文件：(1) whereis [-lbmsu] fileName/dirName</p>
-<p>​                            l    列出目录，在列出的目录中查询</p>
-<p>​                            b   只查找二进制文件</p>
-<p>​                            m  在manual路径下查找</p>
-<p>​                            s    只查找源文件</p>
-<p>​                            u    除了上述3种的其他特殊文件</p>
-<p>​                    (2) locate [-ir]  keyword</p>
-<p>​                            i  忽略大小写</p>
-<p>​                            c 只输出查找到的数量</p>
-<p>​                            -l  5   只输出5行</p>
-<p>​                            -S 输出locate所使用的数据库的相关信息</p>
-<p>​                            -r 后面的关键词可以接正则表达式</p>
-<p>​                    (3) find [path] [options] [action]</p>
-<p>​                            1.-atime、-ctime、-mtime（读取时间、状态时间、修改时间）</p>
-<p>​                                过去24小时内修改的文件：</p>
-<p>​                                    find / -mtime 0</p>
-<p>​                            2.-uid  Unum、-gid  Gnum、-username username、-groupname Gname</p>
-<p>​                                -nouser、-nogroup</p>
-<p>​                            3.-name filename、-size [+-]size、…</p>
-<p>​                            4.[action]:   -exec command \</p>
-<p>​                                    find . test.txt -exec ls -l {} \</p>
-<p>​                                        其中{}是find查找的内容</p>
-<p>创建硬链接（不能跨文件系统，新建inode）：ln  源文件  目标目录</p>
-<p>创建软链接（快捷方式,指向inode）：ln -s 源文件 目标文件</p>
-<p>查看整体磁盘使用量：df [-hi]</p>
-<p>​                                        h:较易阅读的形式；i:以inode数量显示</p>
-<p>​                                        du -h  查看当前目录所占磁盘空间，以较易阅读的形式</p>
-<p>查看磁盘分区情况（可以看成list block device）：lsblk</p>
-<p>​                                                                                        -f （==lskid）查看文件系统名称</p>
-<p>压缩文件（压缩后原文件消失，可以被windows系统的解压软件解压）：gzip fileName</p>
-<p>解压缩：gzip -d</p>
-<p>打包文件：tar [-zcvp]   -f file.tar.gz file1 file2 …</p>
-<p>​                        z  使用gzip的方式压缩</p>
-<p>​                        c  建立打包文件</p>
-<p>​                        v 显示过程</p>
-<p>​                        f  后面接打包后的文件名</p>
-<p>​                        p 保留原文件的权限和属性</p>
-<p>解包：tar [-zxv] -f file.tar.gz -C dirName</p>
-<p>​                x 将打包文件解包</p>
-<p>​                -C 后面接打包后文件的存放目录</p>
-<p>只解压其中的一个：</p>
-<p>​                先查询：tar -ztv -f file.tar.gz | grep fileName</p>
-<p>​                再解压单个：tar -zxv -f file.tar.gz fileName(这里的fileName和查询的fileName一直，包括                                            目录)</p>
-<p>grep [-inv] keyWord fileName 不打开文件查询文件内容</p>
-<p>​        i 忽略大小写</p>
-<p>​        n 显示行号</p>
-<p>​        v 输出不带关键字的行</p>
-<p>​        -A3 输出包括结果所在行之后的3行</p>
-<p>​        -B4 输出包括结果所在行之前的4行</p>
-<p>了解： XFS系统备份还原</p>
-<p>​                        备份：xfsdump   还原：xfsrestore</p>
-<p>​            建立镜像文件：mkisofs</p>
-<p>​            刻录光盘：wodim</p>
-<h3 id="DAY4"><a href="#DAY4" class="headerlink" title="DAY4"></a>DAY4</h3><p>vi</p>
-<p>一般模式-command mode（一般命令模式）</p>
-<p>编辑模式-insert mode（i、o、a（assert）、r（replace））</p>
-<p>命令行模式-command—line mode（：、/、？）</p>
-<p>command mode：  移动光标：</p>
-<p>​                                        ctrl+f 屏幕向下移动一页</p>
-<p>​                                        ctrl+b 屏幕向上移动一页</p>
-<p>​                                        num+SPACE 光标移动本行num个字符</p>
-<p>​                                        0或者HOME   光标移动到本行第一个字符</p>
-<p>​                                        $或者END   光标移动到本行末尾</p>
-<p>​                                        gg 光标移动到文件的最后一行</p>
-<p>​                                        G 光标移动到第一行</p>
-<p>​                                        num+ENTER 光标向下移动num行</p>
-<p>​                                    查找与替换：</p>
-<p>​                                            /string  光标向下查找string</p>
-<p>​                                            ？string 光标向上查找string</p>
-<p>​                                            ：num1，num2s/word1/word2/g </p>
-<p>​                                                            将num1到num2行中的word1替换成word2</p>
-<p>​                                    删除、复制和粘贴：</p>
-<p>​                                            X 删除光标前一个字符   x 删除光标所在的字符</p>
-<p>​                                            dd 删除一整行</p>
-<p>​                                            yy 复制一整行   numyy  复制光标和一下的共num行</p>
-<p>​                                            p  复制</p>
-<p>​                                    其他：</p>
-<p>​                                            u：撤销（恢复上一个操作）</p>
-<p>​                                            ctrl+r或者.  重复一次上一个操作</p>
-<p>command-line mode：</p>
-<p>​                                    ：wq  保存退出    ：q 退出      后面接！强制保存或退出</p>
-<p>​                                    ：r fileName   将fileName的数据加载到光标后一行</p>
-<p>​                                    ：num1，num2 w filename  将num1到num2的数据另存为fileName</p>
-<p>​                                    ：！ command 暂时退出vi执行命令</p>
-<p>​                                    ：set nu 显示行号  ：set nonu  不显示行号</p>
-<p>vim（高级版的vi）</p>
-<p>多文件编辑： vim file1  file2 …</p>
-<p>​                    ：n 编辑下一个文件   ：N 编辑上一个文件   ：files 列出所有文件</p>
-<p>多窗口编辑： ：sp [fileName]</p>
-<p>​                        切换窗口：ctrl+w+上下方向键</p>
-<p>关键字补全：ctrl+x  -&gt; ctrl+n  目前编辑的内容作为关键字进行补全</p>
-<p>将换行符转换为dos的换行符： unix2dos  [-kn] file [new file]</p>
-<p>​                                                        k 保留原本的修改时间</p>
-<p>​                                                        n 保留旧文件                                    </p>
-<p>编码转换：iconv –list  查看支持的编码格式</p>
-<p>​                    file fileName 查看文件的编码格式</p>
-<p>​                    iconv -f 原本编码 -t 新编码 fileName [-o newFile] </p>
-<p>​                                            -o newFile 保留原本的文件并将改变编码后的内容保存到新文件</p>
-<p>内核：管理计算机硬件</p>
-<p>shell：用户与内核沟通的桥梁,命令行模式下我们与系统沟通的一个工具接口</p>
-<p>C shell（类似c语言的shell）：csh</p>
-<p>Linux默认的shell：bash</p>
-<p>了解bash：</p>
-<p>​    查看命令的别名：alias</p>
-<p>​    查看命令类型：type command</p>
-<p>​    命令太长时，输入\ + ENTER换行输入（转义ENTER），一行多个命令：用分号隔开</p>
-<p>变量：</p>
-<p>​        输出：echo  $HOME、echo $PATH</p>
-<p>​        定义（新建）：myname=wei</p>
-<p>​                                   echo ${myname}   #查看变量值</p>
-<p>​                                    先执行命令再赋值：</p>
-<p>​                                        var1=$(command)</p>
-<p>​                                    先运算再赋值：</p>
-<p>​                                        var2=$( ( 运算 ) )</p>
-<p>​                    变量赋值时，使用双引号“”，则里面的$Variable变量可以继续引用</p>
-<p>​                            如果只是单纯的dollar符号，则使用单引号‘$string’</p>
-<p>​        变量内容扩增：比如增加环境变量：PATH=${PATH}:变量</p>
-<p>​        删除：unset 变量名</p>
-<p>​        </p>
-<p>​        使用键盘输入变量：read [-pt] variable</p>
-<p>​                                            p 后面接提示语   t后面接限定时间</p>
-<p>​                                    e.g. read -p “please enter your name :” -t 30 yname</p>
-<p>​        声明变量类型：declare [-aixr] variable</p>
-<p>​                                    a 变量是array数组</p>
-<p>​                                    i 变量是integer整数</p>
-<p>​                                    x 变量是环境变量（全球变量）类似与export</p>
-<p>​                                    r 变量不可改变，不可赋值和unset</p>
-<p>​                                    declare +r variable（+表示取消声明变量类型，即删除类型）</p>
-<p>​                        输出数组：</p>
-<p>​                                    echo “${var[1]}, ${var[2]}, ${var[3]},…”</p>
-<p>​        变量内容的删除与替换：略</p>
-<p>查看所有环境变量：env</p>
-<p>查看所有变量：set</p>
-<p>查看当前进程id：echo $$</p>
-<p>环境变量与普通变量：环境变量能被其他子进程继承</p>
-<p>想要父进程的变量给子进程使用，就可以使用export导入变量</p>
-<p>​    建立子进程：bash</p>
-<p>​    从父进程导入变量：export 变量名</p>
-<p>​    退出子进程：exit</p>
-<p>了解：</p>
-<p>显示linux支持的语系：locale</p>
-<p>​            保存的文件夹：/etc/locale.conf</p>
-<p>限制用户使用系统资源：ulimit</p>
-<p>命令别名（自定义命令名称）：alias 别名=命令</p>
-<p>​                alias lm=‘ls -al’  直接输入lm就可以执行命令‘ls -al’</p>
-<p>​                unalias lm         取消别名</p>
-<p>bash 自制登陆界面信息：cat /etc/issue 查看登录界面信息</p>
-<p>​                                            自定义：修改该文件，具体略</p>
-<p>系统整体的设置文件：/etc/profile</p>
-<p>用户自己的设置文件：~/.bash_profile</p>
-<h3 id="DAY4-1"><a href="#DAY4-1" class="headerlink" title="DAY4"></a>DAY4</h3><p>通配符：</p>
-<p>​                *：匹配任意个任意字符</p>
-<p>​                ？：匹配一个字符</p>
-<p>​                []：匹配括号内的一个字符</p>
-<p>​                [^]：取反，即没有括号内的字符就是匹配成功</p>
-<p>其他符号：</p>
-<p>​                # 注释符号</p>
-<p>​                \ 转义</p>
-<p>​                ；连续命令分隔符</p>
-<p>标准输入： &lt;或&lt;&lt;  前者是覆盖，后者是追加</p>
-<p>标准输出： &gt;或&gt;&gt;   </p>
-<p>标准错误输出：2&gt;或2&gt;&gt;</p>
-<p>ll &gt; queryResult.txt   将ll查询的结果作为输入，保存到queryResult.txt中，若文件不存在则新建</p>
-<p>command &gt; success.txt 2&gt; error.txt  将正确的结果输入success.txt，将错误的信息输入error.txt</p>
-<p>command &gt; all.txt 2&gt;&amp;1 （或者是command &amp;&gt; all.txt）无论正确错误的内容都输入用一个文件内</p>
-<p>命令导向：</p>
-<p>​        linux中如果命令执行正确就会返回一个 $?=0 的值，错误则返回 $?≠0 具体值视情况而定</p>
-<p>​        cmd1 &amp;&amp; cmd2 如果cmd1正确执行完毕，则执行cmd2</p>
-<p>​        cmd1 || cmd2 如果cmd1执行错误，则执行cmd2</p>
-<p>管道命令（pipe）：  |</p>
-<p>​        每个管道后面接的第一个数据必须是命令，且是必须能接受标准输入的数据命令        </p>
-<p>​        如选取命令：cut、grep</p>
-<p>​                echo ${PATH} | cut -d “：”  -f 3，5  选取第3个到第5个以‘：’隔开后的环境变量</p>
-<p>​                            -d 后面接分割符   -f 范围</p>
-<p>​                            -c num1-num2  选取指定下标的字符</p>
-<p>​                </p>
-<p>​                grep [-cinv] [–color=auto]要查找的字符 fileName</p>
-<p>​                        c 查找次数；i 忽略大小写；n 显示行号； v 取反，没有要查找的字符则匹配成功</p>
-<p>​        </p>
-<p>​        排序命令：sort、wc、uniq</p>
-<p>​                略</p>
-<p>双向重定向：将命令的数据流既保存到文件内，同时又输出到屏幕上（标准输出）</p>
-<p>​        tee [-a]  fileName</p>
-<p>​                a:将数据追加到fileName而不是清空fileName</p>
-<p>管道中的 ‘-’ 减号:</p>
-<p>​        tar -zcv -f - /home |tar -zxv -f - -C dirName</p>
-<p>​        表示前面压缩的文件不保存，直接通过管道给下一个tar解压</p>
-<p>（基础）正则表达式：处理字符串的方法</p>
-<p>​                ^表示首个字符（和[^]内的含义不一样）</p>
-<p>​                $ 行尾符号（和变量不同，这个行尾符号是在字符后面而不是前面）</p>
-<p>​                [:alnum:] 英文大小写字母及数字</p>
-<p>​                [:alpha:]  英文大小写</p>
-<p>​                [:digit:]  数字0-9</p>
-<p>​                [:upper:] 大写字母A-Z</p>
-<p>​                [:lower:] 小写字母a-z</p>
-<p>​                o\{2,5\} 匹配2-5个o  （注意要\转义{}）</p>
-<p>​                ……</p>
-<p>​                </p>
-<p>拓展正则表达式：</p>
-<p>​                + 一个或一个以上</p>
-<p>​                ？0个或1个</p>
-<p>​                | 或者（注意管道命令前后是有空格的，这里 0|1 没有空格表示0或者1）</p>
-<p>​                ……</p>
-<p>了解：sed，awk 数据处理</p>
-<p>shell脚本</p>
-<p>​        用shell写的程序，一堆命令集合，就像dos的批处理文件（.bat）</p>
-<p>执行程序：</p>
-<p>​                直接./test.sh  或者bash test.sh 或 sh test.sh，或者加入环境变量等</p>
-<p>​    要想脚本运行完毕后，脚本的变量能变成全球变量，也就是在父进程的shell中运行脚本：</p>
-<p>​            source test.sh</p>
-<p>shell脚本的默认变量：</p>
-<p>​    shell脚本可以直接在.sh 后面接参数（像命令一样带参数）</p>
-<p>​            在脚本中，可以使用这些参数，类似于函数的参数可以传递使用</p>
-<p>​            其中：$0  shell的脚本文件名</p>
-<p>​                        $# 用户输入的参数个数</p>
-<p>​                        $n 第n个参数</p>
-<p>​            比如脚本中：echo “The script name is ${0}” # 输出脚本的名称</p>
-<p>编写程序：hello.sh</p>
-<p>​    #！/bin/bash</p>
-<p>​    #Program:</p>
-<p>​    #                This program shows  “Hello,world!” in your screen.</p>
-<p>​    #History:</p>
-<p>​    #2020\1\17    wei    First release</p>
-<p>​    PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</p>
-<p>​    export PATH</p>
-<p>​    echo -e “Hello,world! \a \n”</p>
-<p>​    exit 0</p>
-<p>1.文件第一行中#！/bin/bash 是声明脚本使用的shell名称，必须要有；</p>
-<p>2.后面的都是注释声明程序的作用，作者，时间等；</p>
-<p>3.注释后面内容第一行PATH是声明主要的环境变量</p>
-<p>4.echo是主程序内容</p>
-<p>5.exit是执行结果告知，也就是告诉系统执行完毕了，返回一个0给系统</p>
-<p>测试：test [options] filename  （通常后面要加上 &amp;&amp; echo ‘yes’ || echo ‘no’）</p>
-<p>​            文件参数：</p>
-<p>​                -e 文件是否存在</p>
-<p>​                -f 文件是否为file</p>
-<p>​                -d 文件是否为目录</p>
-<p>​                -L 文件是否为链接</p>
-<p>​            文件权限：</p>
-<p>​                -r 是否可读  -w 是否可编辑  -x 是否可执行</p>
-<p>​                -s 是否为非空</p>
-<p>​            数值判断： test n1 -eq n2</p>
-<p>​                -eq 是否相等</p>
-<p>​                -ne 是否不等</p>
-<p>​                -gt n1大于n2 greater than</p>
-<p>​                -lt  n1小于n2 less than</p>
-<p>​                -ge n1大于等于n2 greater equal</p>
-<p>​                -le  小于等于</p>
-<p>​            字符串判断：test -z string</p>
-<p>​                -z 是否为空</p>
-<p>​                test str1==str2 是否相等；test str1！=str2是否不相等</p>
-<p>​            与或非：</p>
-<p>​                与（-a）：test n1 -eq n2 -a n1 -gt n3</p>
-<p>​                或（-o）</p>
-<p>​                非 （！）</p>
-<p>条件判断：</p>
-<p>​    结构：if  [ 条件判断式 ]；then</p>
-<p>​                    command</p>
-<p>​                elif [ 条件判断式 ];then</p>
-<p>​                    command</p>
-<p>​                else</p>
-<p>​                    command</p>
-<p>​                fi</p>
-<p>​    </p>
-<p>多层次条件判断：</p>
-<p>​    结构：case $变量名称 in</p>
-<p>​                    “第一个变量内容”）</p>
-<p>​                            程序段</p>
-<p>​                            ；；</p>
-<p>​                    “第二个变量内容”）</p>
-<p>​                            程序段</p>
-<p>​                            ；；</p>
-<p>​                    ……</p>
-<p>​                    *）</p>
-<p>​                            程序段</p>
-<p>​                            ；；</p>
-<p>​                esac</p>
-<p>函数：shell的执行是自上而下的，所以函数必须放在程序的最前面</p>
-<p>​    定义：function fname（）{</p>
-<p>​                        程序段</p>
-<p>​                }</p>
-<p>​    调用：fname</p>
-<p>​    函数也有默认变量：$0 是函数名（注意编写程序时不要将脚本的默认变量与函数的默认变量混淆）</p>
-<p>循环：</p>
-<p>​    while结构：while [ condition ] </p>
-<p>​                        do </p>
-<p>​                                程序段</p>
-<p>​                        done</p>
-<p>​    # 当condition 成立则执行循环</p>
-<p>​    </p>
-<p>​    until结构：until [ condition ]</p>
-<p>​                        do</p>
-<p>​                            程序段</p>
-<p>​                        done</p>
-<p>​    # 当condition成立时，就终止循环</p>
-<p>​    当知道循环次数时：</p>
-<p>​    for结构：for var in con1 con2 con3 ……</p>
-<p>​                    do</p>
-<p>​                            程序段</p>
-<p>​                    done</p>
-<p>​    第二种：for （ （i=0； i&lt;=${num}; i=i+1） ）</p>
-<p>​                    do</p>
-<p>​                            程序段</p>
-<p>​                    done</p>
-<p>随机数变量：${RANDOM}</p>
-<p>脚本的调试：</p>
-<p>​            sh [-nvx]  script.sh</p>
-<p>​                n 不执行脚本，仅查询语法错误</p>
-<p>​                v 执行脚本前，将脚本输出到屏幕上</p>
-<p>​                x 只输出使用到的脚本，相当于单步调试</p>
+<h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">快捷键：</span><br><span class="line"></span><br><span class="line">​	tab 键： 直接按下两次：输出所有可执行命令</span><br><span class="line"></span><br><span class="line">​				有字母按下 一次：补全命令</span><br><span class="line"></span><br><span class="line">​		        有字母按下两次：输出字母开头的所有可执行命令</span><br><span class="line"></span><br><span class="line">​	ctrl + c ： 中断目前的命令</span><br><span class="line"></span><br><span class="line">​	ctrl + d ： exit（键盘输入结束，End of File）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">日期    date（Linux系统的时间）</span><br><span class="line"></span><br><span class="line">​		自定义输出格式：date  +%Y%m%d</span><br><span class="line"></span><br><span class="line">日历（calendar） cal    </span><br><span class="line"></span><br><span class="line">​		cal 2020</span><br><span class="line"></span><br><span class="line">​		cal [month] \[year] (注意顺序)</span><br><span class="line"></span><br><span class="line">修改硬件时间：hwclock --set --date=&quot;20/01/26 14:55&quot;</span><br><span class="line"></span><br><span class="line">​	   或者：clock --set --date=&quot;20/01/26 14:55&quot;</span><br><span class="line"></span><br><span class="line">同步系统时间和硬件时间：hwclock --hctosys</span><br><span class="line"></span><br><span class="line">​			   或者：clock --hctosys</span><br><span class="line"></span><br><span class="line">将硬件时间设置为系统时间：clock -s</span><br><span class="line"></span><br><span class="line">查看系统的运作时间：uptime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看命令信息：</span><br><span class="line"></span><br><span class="line">​	（1）man (manual)  command</span><br><span class="line"></span><br><span class="line">​			进入手册后空格下翻，q退出</span><br><span class="line"></span><br><span class="line">​			/date（查找字符串‘date’），查找后：n（下一个匹配的字符串）</span><br><span class="line"></span><br><span class="line">​			命令后面的编号含义：（如DATE(1)）：man man有详细说明</span><br><span class="line"></span><br><span class="line">​	查看系统中关于man的说明文件： man -f man</span><br><span class="line"></span><br><span class="line">​	关键字搜索：内容中有关键字‘test’的文件： man -k test</span><br><span class="line"></span><br><span class="line">​	（2）info command</span><br><span class="line"></span><br><span class="line">​			带*号表示结点，光标移动到\*按下ENTER可以跳转到该页面</span><br><span class="line"></span><br><span class="line">​	（3）：软件的帮助文档一般可以在目录 /usr/share/doc 下查看</span><br><span class="line"></span><br><span class="line">​			usr：unix system resources（may be user system resources）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看在线成员：who</span><br><span class="line"></span><br><span class="line">查看网络联机状态：netstat</span><br><span class="line"></span><br><span class="line">查看后台程序：ps（process snapshot）</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -r</span><br><span class="line"></span><br><span class="line">查看系统架构：uname -m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">用户切换成管理员：su root （substitute user，需要输入管理员密码）</span><br><span class="line"></span><br><span class="line">​					换回普通用户：su username</span><br><span class="line"></span><br><span class="line">​					切换并使用新用户的环境变量：su -  username</span><br><span class="line"></span><br><span class="line">将数据同步写入硬盘中：sync（synchronize）管理员：整个系统；一般用户：自己的数据</span><br><span class="line">(关机时会自动执行sync)</span><br><span class="line"></span><br><span class="line">关机： halt、poweroff</span><br><span class="line"></span><br><span class="line">​			shutdown -h now （立刻执行）</span><br><span class="line"></span><br><span class="line">​			shutdown -h  22：22 （下一个22：22分关机）</span><br><span class="line"></span><br><span class="line">​			shutdown -h +10 （十分钟后自动关机）</span><br><span class="line"></span><br><span class="line">​			shutdown -r now  (立刻重启)</span><br><span class="line"></span><br><span class="line">​			shutdown -r +30 &apos;This message will be sended to all user online&apos;  (30分钟后关机并此刻将消息发送给所有在线用户)</span><br><span class="line"></span><br><span class="line">​			shutdown -k now &apos;This system will reboot&apos;   (发送警告，但不关机)</span><br><span class="line"></span><br><span class="line">​			shutdown -c   （取消关机）</span><br><span class="line"></span><br><span class="line">重启：reboot</span><br><span class="line"></span><br><span class="line">以上关机重启命令都是通过调用系统服务命令实现：systemctlf</span><br><span class="line"></span><br><span class="line">​		关机：systemctl   poweroff         重启：systemctl   reboot        ……</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DAY2"><a href="#DAY2" class="headerlink" title="DAY2"></a>DAY2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line">文件与目录的查看：ls [-al]   fileName/directory</span><br><span class="line"></span><br><span class="line">​					a：所有文件；l：详细信息（权限，大小，所属用户、组，修改时间，文件名）</span><br><span class="line"></span><br><span class="line">​					ll：列出文件详细信息（除了隐藏文件）后面没有指定文件或路径则默认当前路径</span><br><span class="line"></span><br><span class="line">更改文件所属用户、组：chgrp [-R]  fileName/directory</span><br><span class="line"></span><br><span class="line">​					chown [-R]  userName   fileName</span><br><span class="line"></span><br><span class="line">​					chown [-R]  userName : groupName  fileName</span><br><span class="line"></span><br><span class="line">修改权限：chmod [-R]   xyz  fileName/directory</span><br><span class="line"></span><br><span class="line">​					(1)chmod 777 test.txt</span><br><span class="line"></span><br><span class="line">​					(2)chmod [ugoa]\[+-=][rwx]  fileName/directory</span><br><span class="line"></span><br><span class="line">​							chmod u+x test.txt</span><br><span class="line"></span><br><span class="line">​							chmod u=rwx,go=r test.txt</span><br><span class="line"></span><br><span class="line">​	r:能查看；x：能进入（执行）路径（文件）内</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">. 当前目录</span><br><span class="line"></span><br><span class="line">.. 上一级目录</span><br><span class="line"></span><br><span class="line">\- 前一个工作目录</span><br><span class="line"></span><br><span class="line">~ 当前用户的家目录</span><br><span class="line"></span><br><span class="line">cd（change directory）</span><br><span class="line"></span><br><span class="line">pwd（print working directory） [-P]   -P表示显示真实路径，而非link</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出环境变量：echo $PATH</span><br><span class="line"></span><br><span class="line">添加环境变量：PATH=”$&#123;PATH&#125;:/test“</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">创建目录：mkdir [-mp] directoryName</span><br><span class="line"></span><br><span class="line">​				mkdir -m 744 test  (创建时设置权限)；p：递归创建</span><br><span class="line"></span><br><span class="line">删除空目录：rmdir [-p]</span><br><span class="line"></span><br><span class="line">​		非空：rm -r directoryName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制：cp [-aipr] source  destination</span><br><span class="line"></span><br><span class="line">​				-a 复制所有文件信息（权限、链接、递归复制）</span><br><span class="line"></span><br><span class="line">​				-i 目标文件已经存在时先询问</span><br><span class="line"></span><br><span class="line">​				-p 将文件的权限、用户、时间一起复制（常用来备份）</span><br><span class="line"></span><br><span class="line">​				-r 递归复制</span><br><span class="line"></span><br><span class="line">​				-d 复制链接文件的属性（即指向实际链接的文件）</span><br><span class="line"></span><br><span class="line">​				-v 显示过程</span><br><span class="line"></span><br><span class="line">删除：rm [-fir] fileName/dirName</span><br><span class="line"></span><br><span class="line">​				f：强制</span><br><span class="line"></span><br><span class="line">​				i：是否询问</span><br><span class="line"></span><br><span class="line">​				r：递归删除</span><br><span class="line"></span><br><span class="line">移动（重命名）：(1)mv [-fiu] source destination</span><br><span class="line"></span><br><span class="line">​					f：强制移动，有相同文件时，目标文件删除</span><br><span class="line"></span><br><span class="line">​					u ：update目标文件（两者中保留时间最新的那个）</span><br><span class="line"></span><br><span class="line">​					重命名：mv test.txt test2.txt</span><br><span class="line"></span><br><span class="line">​			  (2)mv [options] source1 source2… directory</span><br><span class="line"></span><br><span class="line">​					将一堆文件移动到目录内</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看文件内容：</span><br><span class="line"></span><br><span class="line">​	(1) （concatenate）cat [-An] fileName</span><br><span class="line"></span><br><span class="line">​							-A：显示特殊符号</span><br><span class="line"></span><br><span class="line">​							-n：打印行号（-b：空白行不显示行号，非空白行显示行号）</span><br><span class="line"></span><br><span class="line">​							反向输出：tac</span><br><span class="line"></span><br><span class="line">​	(2) nl [-bnw]  fileName   (自动输出行号)</span><br><span class="line"></span><br><span class="line">​			-b a : 空行也显示行号</span><br><span class="line"></span><br><span class="line">​			-b t : 空行不显示行号</span><br><span class="line"></span><br><span class="line">​			-n ln/rn : 在左侧/右侧显示行号</span><br><span class="line"></span><br><span class="line">​			-n rz : 在右侧显示行号，且不足6位补0</span><br><span class="line"></span><br><span class="line">​			-w  n: 行号的位数（n）	</span><br><span class="line"></span><br><span class="line">​	</span><br><span class="line"></span><br><span class="line">​	可翻页：</span><br><span class="line"></span><br><span class="line">​			(1) more</span><br><span class="line"></span><br><span class="line">​					space:下翻一页</span><br><span class="line"></span><br><span class="line">​					Enter:下翻一行</span><br><span class="line"></span><br><span class="line">​					/string:查找字符串</span><br><span class="line"></span><br><span class="line">​					:f   显示文件名和目前的行数</span><br><span class="line"></span><br><span class="line">​					q:退出</span><br><span class="line"></span><br><span class="line">​					b（ctrl+b）往回翻页</span><br><span class="line"></span><br><span class="line">​			(2) less</span><br><span class="line"></span><br><span class="line">​					space：下翻一页				</span><br><span class="line"></span><br><span class="line">​					pgUp：向上翻页</span><br><span class="line"></span><br><span class="line">​					pgDw：向下翻页</span><br><span class="line"></span><br><span class="line">​					/string：向下查找字符串</span><br><span class="line"></span><br><span class="line">​					？string：向上查找字符串</span><br><span class="line"></span><br><span class="line">​					g：跳到第一行</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​	显示部分：</span><br><span class="line"></span><br><span class="line">​				(1) head [-n number]</span><br><span class="line"></span><br><span class="line">​						显示前面number行（默认显示20行）</span><br><span class="line"></span><br><span class="line">​				(2) tail [-n number]</span><br><span class="line"></span><br><span class="line">​						显示后面number行（默认显示10行）</span><br><span class="line"></span><br><span class="line">​				显示第11行到第20行：（管道）这时候[-n number]不能省略</span><br><span class="line"></span><br><span class="line">​						head  -n 20 test.txt | tail -n 10</span><br><span class="line"></span><br><span class="line">​				上面的内容显示行号：</span><br><span class="line"></span><br><span class="line">​						cat -n test.txt | head -n 20 | tail -n 10</span><br><span class="line"></span><br><span class="line">查看非文本文件：od -t [-acdfox]</span><br><span class="line"></span><br><span class="line">​				-a 默认字符输出；-c ASCII码输出</span><br><span class="line"></span><br><span class="line">​				d(decimal)   f(floating)  o(octal)   x(hexadecimal)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DAY3"><a href="#DAY3" class="headerlink" title="DAY3"></a>DAY3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line">touch: (1) 创建新文件</span><br><span class="line"></span><br><span class="line">​	   (2) 修改文件的修改时间和读取时间为当前时间</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">默认权限： 文件的默认权限：-rwxr--r--</span><br><span class="line"></span><br><span class="line">​					目录的默认权限：-rwxr-xr-x (x就是能进入该目录)</span><br><span class="line"></span><br><span class="line">​					查看默认权限：umask   (数字就是没有的权限，第一个0表示八进制？)</span><br><span class="line"></span><br><span class="line">​					设置默认权限：umask [1-7]\[1-7]\[1-7]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">了解：隐藏属性：配置隐藏属性(管理员账号)：chattr</span><br><span class="line"></span><br><span class="line">​			查看隐藏属性：lsattr [-adR] fileName/dirName</span><br><span class="line"></span><br><span class="line">​			特殊权限：SUID,SGID,SBIT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看文件类型：file fileName</span><br><span class="line"></span><br><span class="line">查找命令所在的文件：which [-a] command</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查找文件：(1) whereis [-lbmsu] fileName/dirName</span><br><span class="line"></span><br><span class="line">​					l    列出目录，在列出的目录中查询</span><br><span class="line"></span><br><span class="line">​					b   只查找二进制文件</span><br><span class="line"></span><br><span class="line">​					m  在manual路径下查找</span><br><span class="line"></span><br><span class="line">​					s    只查找源文件</span><br><span class="line"></span><br><span class="line">​					u    除了上述3种的其他特殊文件</span><br><span class="line"></span><br><span class="line">​		 (2) locate [-ir]  keyword</span><br><span class="line"></span><br><span class="line">​					i  忽略大小写</span><br><span class="line"></span><br><span class="line">​					c 只输出查找到的数量</span><br><span class="line"></span><br><span class="line">​					-l  5   只输出5行</span><br><span class="line"></span><br><span class="line">​					-S 输出locate所使用的数据库的相关信息</span><br><span class="line"></span><br><span class="line">​					-r 后面的关键词可以接正则表达式</span><br><span class="line"></span><br><span class="line">​		  (3) find [path] [options] [action]</span><br><span class="line"></span><br><span class="line">​					1.-atime、-ctime、-mtime（读取时间、状态时间、修改时间）</span><br><span class="line"></span><br><span class="line">​					过去24小时内修改的文件：</span><br><span class="line"></span><br><span class="line">​							find / -mtime 0</span><br><span class="line"></span><br><span class="line">​					2.-uid  Unum、-gid  Gnum、-username username、-groupname Gname</span><br><span class="line"></span><br><span class="line">​								-nouser、-nogroup</span><br><span class="line"></span><br><span class="line">​					3.-name filename、-size [+-]size、...</span><br><span class="line"></span><br><span class="line">​					4.[action]:   -exec command \</span><br><span class="line"></span><br><span class="line">​								  find . test.txt -exec ls -l &#123;&#125; \</span><br><span class="line"></span><br><span class="line">​						其中&#123;&#125;是find查找的内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">创建硬链接（不能跨文件系统，新建inode）：ln  源文件  目标目录</span><br><span class="line"></span><br><span class="line">创建软链接（快捷方式,指向inode）：ln -s 源文件 目标文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看整体磁盘使用量：df [-hi]</span><br><span class="line"></span><br><span class="line">​					h:较易阅读的形式；i:以inode数量显示</span><br><span class="line"></span><br><span class="line">​					du -h  查看当前目录所占磁盘空间，以较易阅读的形式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看磁盘分区情况（可以看成list block device）：lsblk</span><br><span class="line"></span><br><span class="line">​											-f （==lskid）查看文件系统名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">压缩文件（压缩后原文件消失，可以被windows系统的解压软件解压）：gzip fileName</span><br><span class="line"></span><br><span class="line">解压缩：gzip -d</span><br><span class="line"></span><br><span class="line">打包文件：tar [-zcvp]   -f file.tar.gz file1 file2 ...</span><br><span class="line"></span><br><span class="line">​						z  使用gzip的方式压缩</span><br><span class="line"></span><br><span class="line">​						c  建立打包文件</span><br><span class="line"></span><br><span class="line">​						v 显示过程</span><br><span class="line"></span><br><span class="line">​						f  后面接打包后的文件名</span><br><span class="line"></span><br><span class="line">​						p 保留原文件的权限和属性</span><br><span class="line"></span><br><span class="line">解包：tar [-zxv] -f file.tar.gz -C dirName</span><br><span class="line"></span><br><span class="line">​				x 将打包文件解包</span><br><span class="line"></span><br><span class="line">​				-C 后面接打包后文件的存放目录</span><br><span class="line"></span><br><span class="line">只解压其中的一个：</span><br><span class="line"></span><br><span class="line">​		先查询：tar -ztv -f file.tar.gz | grep fileName</span><br><span class="line"></span><br><span class="line">​		再解压单个：tar -zxv -f file.tar.gz fileName(这里的fileName和查询的fileName一直，包括											目录)</span><br><span class="line"></span><br><span class="line">grep [-inv] keyWord fileName 不打开文件查询文件内容</span><br><span class="line"></span><br><span class="line">​		i 忽略大小写</span><br><span class="line"></span><br><span class="line">​		n 显示行号</span><br><span class="line"></span><br><span class="line">​		v 输出不带关键字的行</span><br><span class="line"></span><br><span class="line">​		-A3 输出包括结果所在行之后的3行</span><br><span class="line"></span><br><span class="line">​		-B4 输出包括结果所在行之前的4行</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">了解： XFS系统备份还原</span><br><span class="line"></span><br><span class="line">​			备份：xfsdump   还原：xfsrestore</span><br><span class="line"></span><br><span class="line">​			建立镜像文件：mkisofs</span><br><span class="line"></span><br><span class="line">​			刻录光盘：wodim</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DAY4"><a href="#DAY4" class="headerlink" title="DAY4"></a>DAY4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line">vi</span><br><span class="line"></span><br><span class="line">一般模式-command mode（一般命令模式）</span><br><span class="line"></span><br><span class="line">编辑模式-insert mode（i、o、a（assert）、r（replace））</span><br><span class="line"></span><br><span class="line">命令行模式-command—line mode（：、/、？）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">command mode：  移动光标：</span><br><span class="line"></span><br><span class="line">​				  ctrl+f 屏幕向下移动一页</span><br><span class="line"></span><br><span class="line">​				  ctrl+b 屏幕向上移动一页</span><br><span class="line"></span><br><span class="line">​				  num+SPACE 光标移动本行num个字符</span><br><span class="line"></span><br><span class="line">​				  0或者HOME   光标移动到本行第一个字符</span><br><span class="line"></span><br><span class="line">​				  $或者END   光标移动到本行末尾</span><br><span class="line"></span><br><span class="line">​				  gg 光标移动到文件的最后一行</span><br><span class="line"></span><br><span class="line">​				  G 光标移动到第一行</span><br><span class="line"></span><br><span class="line">​				  num+ENTER 光标向下移动num行</span><br><span class="line"></span><br><span class="line">​				查找与替换：</span><br><span class="line"></span><br><span class="line">​					/string  光标向下查找string</span><br><span class="line"></span><br><span class="line">​					？string 光标向上查找string</span><br><span class="line"></span><br><span class="line">​					：num1，num2s/word1/word2/g </span><br><span class="line"></span><br><span class="line">​					将num1到num2行中的word1替换成word2</span><br><span class="line"></span><br><span class="line">​				删除、复制和粘贴：</span><br><span class="line"></span><br><span class="line">​					X 删除光标前一个字符   x 删除光标所在的字符</span><br><span class="line"></span><br><span class="line">​					dd 删除一整行</span><br><span class="line"></span><br><span class="line">​					yy 复制一整行   numyy  复制光标和一下的共num行</span><br><span class="line"></span><br><span class="line">​					p  复制</span><br><span class="line"></span><br><span class="line">​				其他：</span><br><span class="line"></span><br><span class="line">​					u：撤销（恢复上一个操作）</span><br><span class="line"></span><br><span class="line">​					ctrl+r或者.  重复一次上一个操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">command-line mode：</span><br><span class="line"></span><br><span class="line">​				：wq  保存退出    ：q 退出      后面接！强制保存或退出</span><br><span class="line"></span><br><span class="line">​				：r fileName   将fileName的数据加载到光标后一行</span><br><span class="line"></span><br><span class="line">​				：num1，num2 w filename  将num1到num2的数据另存为fileName</span><br><span class="line"></span><br><span class="line">​				：！ command 暂时退出vi执行命令</span><br><span class="line"></span><br><span class="line">​				：set nu 显示行号  ：set nonu  不显示行号</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim（高级版的vi）</span><br><span class="line"></span><br><span class="line">多文件编辑： vim file1  file2 ...</span><br><span class="line"></span><br><span class="line">​					：n 编辑下一个文件   ：N 编辑上一个文件   ：files 列出所有文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">多窗口编辑： ：sp [fileName]</span><br><span class="line"></span><br><span class="line">​				切换窗口：ctrl+w+上下方向键</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">关键字补全：ctrl+x  -&gt; ctrl+n  目前编辑的内容作为关键字进行补全</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">将换行符转换为dos的换行符： unix2dos  [-kn] file [new file]</span><br><span class="line"></span><br><span class="line">​									k 保留原本的修改时间</span><br><span class="line"></span><br><span class="line">​									n 保留旧文件									</span><br><span class="line"></span><br><span class="line">编码转换：iconv --list  查看支持的编码格式</span><br><span class="line"></span><br><span class="line">​					file fileName 查看文件的编码格式</span><br><span class="line"></span><br><span class="line">​					iconv -f 原本编码 -t 新编码 fileName [-o newFile] </span><br><span class="line"></span><br><span class="line">​					-o newFile 保留原本的文件并将改变编码后的内容保存到新文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">内核：管理计算机硬件</span><br><span class="line"></span><br><span class="line">shell：用户与内核沟通的桥梁,命令行模式下我们与系统沟通的一个工具接口</span><br><span class="line"></span><br><span class="line">C shell（类似c语言的shell）：csh</span><br><span class="line"></span><br><span class="line">Linux默认的shell：bash</span><br><span class="line"></span><br><span class="line">了解bash：</span><br><span class="line"></span><br><span class="line">​	查看命令的别名：alias</span><br><span class="line"></span><br><span class="line">​	查看命令类型：type command</span><br><span class="line"></span><br><span class="line">​	命令太长时，输入\ + ENTER换行输入（转义ENTER），一行多个命令：用分号隔开</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">变量：</span><br><span class="line"></span><br><span class="line">​		输出：echo  $HOME、echo $PATH</span><br><span class="line"></span><br><span class="line">​		定义（新建）：myname=wei</span><br><span class="line"></span><br><span class="line">​				    echo $&#123;myname&#125;   #查看变量值</span><br><span class="line"></span><br><span class="line">​		先执行命令再赋值：</span><br><span class="line"></span><br><span class="line">​					var1=$(command)</span><br><span class="line"></span><br><span class="line">​		先运算再赋值：</span><br><span class="line"></span><br><span class="line">​					var2=$( ( 运算 ) )</span><br><span class="line"></span><br><span class="line">​		变量赋值时，使用双引号“”，则里面的$Variable变量可以继续引用</span><br><span class="line"></span><br><span class="line">​							如果只是单纯的dollar符号，则使用单引号‘$string’</span><br><span class="line"></span><br><span class="line">​		变量内容扩增：比如增加环境变量：PATH=$&#123;PATH&#125;:变量</span><br><span class="line"></span><br><span class="line">​		删除：unset 变量名</span><br><span class="line"></span><br><span class="line">​		</span><br><span class="line"></span><br><span class="line">​		使用键盘输入变量：read [-pt] variable</span><br><span class="line"></span><br><span class="line">​							p 后面接提示语   t后面接限定时间</span><br><span class="line"></span><br><span class="line">​						e.g. read -p &quot;please enter your name :&quot; -t 30 yname</span><br><span class="line"></span><br><span class="line">​		声明变量类型：declare [-aixr] variable</span><br><span class="line"></span><br><span class="line">​							a 变量是array数组</span><br><span class="line"></span><br><span class="line">​							i 变量是integer整数</span><br><span class="line"></span><br><span class="line">​							x 变量是环境变量（全球变量）类似与export</span><br><span class="line"></span><br><span class="line">​							r 变量不可改变，不可赋值和unset</span><br><span class="line"></span><br><span class="line">​							declare +r variable（+表示取消声明变量类型，即删除类型）</span><br><span class="line"></span><br><span class="line">​						输出数组：</span><br><span class="line"></span><br><span class="line">​							echo “$&#123;var[1]&#125;, $&#123;var[2]&#125;, $&#123;var[3]&#125;,...”</span><br><span class="line"></span><br><span class="line">​		变量内容的删除与替换：略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看所有环境变量：env</span><br><span class="line"></span><br><span class="line">查看所有变量：set</span><br><span class="line"></span><br><span class="line">查看当前进程id：echo $$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">环境变量与普通变量：环境变量能被其他子进程继承</span><br><span class="line"></span><br><span class="line">想要父进程的变量给子进程使用，就可以使用export导入变量</span><br><span class="line"></span><br><span class="line">​	建立子进程：bash</span><br><span class="line"></span><br><span class="line">​	从父进程导入变量：export 变量名</span><br><span class="line"></span><br><span class="line">​	退出子进程：exit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">了解：</span><br><span class="line"></span><br><span class="line">显示linux支持的语系：locale</span><br><span class="line"></span><br><span class="line">​			保存的文件夹：/etc/locale.conf</span><br><span class="line"></span><br><span class="line">限制用户使用系统资源：ulimit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令别名（自定义命令名称）：alias 别名=命令</span><br><span class="line"></span><br><span class="line">​				alias lm=‘ls -al’  直接输入lm就可以执行命令‘ls -al’</span><br><span class="line"></span><br><span class="line">​				unalias lm         取消别名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bash 自制登陆界面信息：cat /etc/issue 查看登录界面信息</span><br><span class="line"></span><br><span class="line">​	 自定义：修改该文件，具体略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">系统整体的设置文件：/etc/profile</span><br><span class="line"></span><br><span class="line">用户自己的设置文件：~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DAY5"><a href="#DAY5" class="headerlink" title="DAY5"></a>DAY5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br></pre></td><td class="code"><pre><span class="line">通配符：</span><br><span class="line"></span><br><span class="line">​	*：匹配任意个任意字符</span><br><span class="line"></span><br><span class="line">​	？：匹配一个字符</span><br><span class="line"></span><br><span class="line">​	[]：匹配括号内的一个字符</span><br><span class="line"></span><br><span class="line">​	[^]：取反，即没有括号内的字符就是匹配成功</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其他符号：</span><br><span class="line"></span><br><span class="line">​	\# 注释符号</span><br><span class="line"></span><br><span class="line">​	\ 转义</span><br><span class="line"></span><br><span class="line">​	；连续命令分隔符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">标准输入： &lt;或&lt;&lt;  前者是覆盖，后者是追加</span><br><span class="line"></span><br><span class="line">标准输出： &gt;或&gt;&gt;   </span><br><span class="line"></span><br><span class="line">标准错误输出：2&gt;或2&gt;&gt;</span><br><span class="line"></span><br><span class="line">ll &gt; queryResult.txt   将ll查询的结果作为输入，保存到queryResult.txt中，若文件不存在则新建</span><br><span class="line"></span><br><span class="line">command &gt; success.txt 2&gt; error.txt  将正确的结果输入success.txt，将错误的信息输入error.txt</span><br><span class="line"></span><br><span class="line">command &gt; all.txt 2&gt;&amp;1 （或者是command &amp;&gt; all.txt）无论正确错误的内容都输入用一个文件内</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令导向：</span><br><span class="line"></span><br><span class="line">​		linux中如果命令执行正确就会返回一个 $?=0 的值，错误则返回 $?≠0 具体值视情况而定</span><br><span class="line"></span><br><span class="line">​		cmd1 &amp;&amp; cmd2 如果cmd1正确执行完毕，则执行cmd2</span><br><span class="line"></span><br><span class="line">​		cmd1 || cmd2 如果cmd1执行错误，则执行cmd2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">管道命令（pipe）：  |</span><br><span class="line"></span><br><span class="line">​		每个管道后面接的第一个数据必须是命令，且是必须能接受标准输入的数据命令		</span><br><span class="line"></span><br><span class="line">​		如选取命令：cut、grep</span><br><span class="line"></span><br><span class="line">​				echo $&#123;PATH&#125; | cut -d “：”  -f 3，5  选取第3个到第5个以‘：’隔开后的环境变量</span><br><span class="line"></span><br><span class="line">​							-d 后面接分割符   -f 范围</span><br><span class="line"></span><br><span class="line">​							-c num1-num2  选取指定下标的字符</span><br><span class="line"></span><br><span class="line">​				</span><br><span class="line"></span><br><span class="line">​				grep [-cinv] [--color=auto]要查找的字符 fileName</span><br><span class="line"></span><br><span class="line">​						c 查找次数；i 忽略大小写；n 显示行号； v 取反，没有要查找的字符则匹配成功</span><br><span class="line"></span><br><span class="line">​		</span><br><span class="line"></span><br><span class="line">排序命令：sort、wc、uniq</span><br><span class="line"></span><br><span class="line">略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">双向重定向：将命令的数据流既保存到文件内，同时又输出到屏幕上（标准输出）</span><br><span class="line"></span><br><span class="line">​		tee [-a]  fileName</span><br><span class="line"></span><br><span class="line">​			a:将数据追加到fileName而不是清空fileName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">管道中的 ‘-’ 减号:</span><br><span class="line"></span><br><span class="line">​		tar -zcv -f - /home |tar -zxv -f - -C dirName</span><br><span class="line"></span><br><span class="line">​		表示前面压缩的文件不保存，直接通过管道给下一个tar解压</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">（基础）正则表达式：处理字符串的方法</span><br><span class="line"></span><br><span class="line">​	^表示首个字符（和[^]内的含义不一样）</span><br><span class="line"></span><br><span class="line">​	$ 行尾符号（和变量不同，这个行尾符号是在字符后面而不是前面）</span><br><span class="line"></span><br><span class="line">​	[:alnum:] 英文大小写字母及数字</span><br><span class="line"></span><br><span class="line">​	[:alpha:]  英文大小写</span><br><span class="line"></span><br><span class="line">​	[:digit:]  数字0-9</span><br><span class="line"></span><br><span class="line">​	[:upper:] 大写字母A-Z</span><br><span class="line"></span><br><span class="line">​	[:lower:] 小写字母a-z</span><br><span class="line"></span><br><span class="line">​	o\\&#123;2,5\\&#125; 匹配2-5个o  （注意要\转义&#123;&#125;）</span><br><span class="line"></span><br><span class="line">​   ……</span><br><span class="line"></span><br><span class="line">​				</span><br><span class="line"></span><br><span class="line">拓展正则表达式：</span><br><span class="line"></span><br><span class="line">​	\+ 一个或一个以上</span><br><span class="line"></span><br><span class="line">​	？0个或1个</span><br><span class="line"></span><br><span class="line">​	| 或者（注意管道命令前后是有空格的，这里 0|1 没有空格表示0或者1）</span><br><span class="line"></span><br><span class="line">​	……</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">了解：sed，awk 数据处理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">shell脚本</span><br><span class="line"></span><br><span class="line">​		用shell写的程序，一堆命令集合，就像dos的批处理文件（.bat）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">执行程序：</span><br><span class="line"></span><br><span class="line">​	直接./test.sh  或者bash test.sh 或 sh test.sh，或者加入环境变量等</span><br><span class="line"></span><br><span class="line">​	要想脚本运行完毕后，脚本的变量能变成全球变量，也就是在父进程的shell中运行脚本：</span><br><span class="line"></span><br><span class="line">​			source test.sh</span><br><span class="line"></span><br><span class="line">shell脚本的默认变量：</span><br><span class="line"></span><br><span class="line">​	shell脚本可以直接在.sh 后面接参数（像命令一样带参数）</span><br><span class="line"></span><br><span class="line">​	在脚本中，可以使用这些参数，类似于函数的参数可以传递使用</span><br><span class="line"></span><br><span class="line">​	其中：$0  shell的脚本文件名</span><br><span class="line"></span><br><span class="line">​		 $# 用户输入的参数个数</span><br><span class="line"></span><br><span class="line">​		 $n 第n个参数</span><br><span class="line"></span><br><span class="line">​	比如脚本中：echo &quot;The script name is $&#123;0&#125;&quot; # 输出脚本的名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">编写程序：hello.sh</span><br><span class="line"></span><br><span class="line">​	#！/bin/bash</span><br><span class="line"></span><br><span class="line">​	#Program:</span><br><span class="line"></span><br><span class="line">​	#				This program shows  &quot;Hello,world!&quot; in your screen.</span><br><span class="line"></span><br><span class="line">​	#History:</span><br><span class="line"></span><br><span class="line">​	#2020\1\17	wei	First release</span><br><span class="line"></span><br><span class="line">​	PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</span><br><span class="line"></span><br><span class="line">​	export PATH</span><br><span class="line"></span><br><span class="line">​	echo -e &quot;Hello,world! \a \n&quot;</span><br><span class="line"></span><br><span class="line">​	exit 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.文件第一行中#！/bin/bash 是声明脚本使用的shell名称，必须要有；</span><br><span class="line"></span><br><span class="line">2.后面的都是注释声明程序的作用，作者，时间等；</span><br><span class="line"></span><br><span class="line">3.注释后面内容第一行PATH是声明主要的环境变量</span><br><span class="line"></span><br><span class="line">4.echo是主程序内容</span><br><span class="line"></span><br><span class="line">5.exit是执行结果告知，也就是告诉系统执行完毕了，返回一个0给系统</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">测试：test [options] filename  （通常后面要加上 &amp;&amp; echo ‘yes’ || echo ‘no’）</span><br><span class="line"></span><br><span class="line">​			文件参数：</span><br><span class="line"></span><br><span class="line">​				-e 文件是否存在</span><br><span class="line"></span><br><span class="line">​				-f 文件是否为file</span><br><span class="line"></span><br><span class="line">​				-d 文件是否为目录</span><br><span class="line"></span><br><span class="line">​				-L 文件是否为链接</span><br><span class="line"></span><br><span class="line">​			文件权限：</span><br><span class="line"></span><br><span class="line">​				-r 是否可读  -w 是否可编辑  -x 是否可执行</span><br><span class="line"></span><br><span class="line">​				-s 是否为非空</span><br><span class="line"></span><br><span class="line">​			数值判断： test n1 -eq n2</span><br><span class="line"></span><br><span class="line">​				-eq 是否相等</span><br><span class="line"></span><br><span class="line">​				-ne 是否不等</span><br><span class="line"></span><br><span class="line">​				-gt n1大于n2 greater than</span><br><span class="line"></span><br><span class="line">​				-lt  n1小于n2 less than</span><br><span class="line"></span><br><span class="line">​				-ge n1大于等于n2 greater equal</span><br><span class="line"></span><br><span class="line">​				-le  小于等于</span><br><span class="line"></span><br><span class="line">​			字符串判断：test -z string</span><br><span class="line"></span><br><span class="line">​				-z 是否为空</span><br><span class="line"></span><br><span class="line">​				test str1==str2 是否相等；test str1！=str2是否不相等</span><br><span class="line"></span><br><span class="line">​			与或非：</span><br><span class="line"></span><br><span class="line">​				与（-a）：test n1 -eq n2 -a n1 -gt n3</span><br><span class="line"></span><br><span class="line">​				或（-o）</span><br><span class="line"></span><br><span class="line">​				非 （！）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">条件判断：</span><br><span class="line"></span><br><span class="line">​	结构：if  [ 条件判断式 ]；then</span><br><span class="line"></span><br><span class="line">​					command</span><br><span class="line"></span><br><span class="line">​		 elif [ 条件判断式 ];then</span><br><span class="line"></span><br><span class="line">​					command</span><br><span class="line"></span><br><span class="line">​		 else</span><br><span class="line"></span><br><span class="line">​					command</span><br><span class="line"></span><br><span class="line">​		 fi</span><br><span class="line"></span><br><span class="line">​	</span><br><span class="line"></span><br><span class="line">多层次条件判断：</span><br><span class="line"></span><br><span class="line">​	结构：case $变量名称 in</span><br><span class="line"></span><br><span class="line">​			“第一个变量内容”）</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​					；；</span><br><span class="line"></span><br><span class="line">​			“第二个变量内容”）</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​					；；</span><br><span class="line"></span><br><span class="line">​			……</span><br><span class="line"></span><br><span class="line">​			*）</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​					；；</span><br><span class="line"></span><br><span class="line">​			esac</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">函数：shell的执行是自上而下的，所以函数必须放在程序的最前面</span><br><span class="line"></span><br><span class="line">​	定义：function fname（）&#123;</span><br><span class="line"></span><br><span class="line">​						程序段</span><br><span class="line"></span><br><span class="line">​				&#125;</span><br><span class="line"></span><br><span class="line">​	调用：fname</span><br><span class="line"></span><br><span class="line">​	函数也有默认变量：$0 是函数名（注意编写程序时不要将脚本的默认变量与函数的默认变量混淆）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">循环：</span><br><span class="line"></span><br><span class="line">​	while结构：while [ condition ] </span><br><span class="line"></span><br><span class="line">​			  do </span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​			  done</span><br><span class="line"></span><br><span class="line">​	\# 当condition 成立则执行循环</span><br><span class="line"></span><br><span class="line">​	</span><br><span class="line"></span><br><span class="line">​	until结构：until [ condition ]</span><br><span class="line"></span><br><span class="line">​			  do</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​			  done</span><br><span class="line"></span><br><span class="line">​	\# 当condition成立时，就终止循环</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​	当知道循环次数时：</span><br><span class="line"></span><br><span class="line">​	for结构：for var in con1 con2 con3 ……</span><br><span class="line"></span><br><span class="line">​			do</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​			done</span><br><span class="line"></span><br><span class="line">​	第二种：for （ （i=0； i&lt;=$&#123;num&#125;; i=i+1） ）</span><br><span class="line"></span><br><span class="line">​		   do</span><br><span class="line"></span><br><span class="line">​					程序段</span><br><span class="line"></span><br><span class="line">​		   done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">随机数变量：$&#123;RANDOM&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">脚本的调试：</span><br><span class="line"></span><br><span class="line">​			sh [-nvx]  script.sh</span><br><span class="line"></span><br><span class="line">​				n 不执行脚本，仅查询语法错误</span><br><span class="line"></span><br><span class="line">​				v 执行脚本前，将脚本输出到屏幕上</span><br><span class="line"></span><br><span class="line">​				x 只输出使用到的脚本，相当于单步调试</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -751,7 +319,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">1.2.</span> <span class="toc-text">优点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、命令"><span class="toc-number">3.</span> <span class="toc-text">三、命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式"><span class="toc-number">3.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY1"><span class="toc-number">3.2.</span> <span class="toc-text">DAY1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY2"><span class="toc-number">3.3.</span> <span class="toc-text">DAY2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY3"><span class="toc-number">3.4.</span> <span class="toc-text">DAY3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY4"><span class="toc-number">3.5.</span> <span class="toc-text">DAY4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY4-1"><span class="toc-number">3.6.</span> <span class="toc-text">DAY4</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">1.2.</span> <span class="toc-text">优点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装"><span class="toc-number">2.</span> <span class="toc-text">二、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、命令"><span class="toc-number">3.</span> <span class="toc-text">三、命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式"><span class="toc-number">3.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY1"><span class="toc-number">3.2.</span> <span class="toc-text">DAY1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY2"><span class="toc-number">3.3.</span> <span class="toc-text">DAY2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY3"><span class="toc-number">3.4.</span> <span class="toc-text">DAY3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY4"><span class="toc-number">3.5.</span> <span class="toc-text">DAY4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY5"><span class="toc-number">3.6.</span> <span class="toc-text">DAY5</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -869,10 +437,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -890,6 +454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
