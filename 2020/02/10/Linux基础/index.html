@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/10 | Rechard&#39;s Blog</title>
+  <title>Linux基础 | Rechard&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rechard&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;10&#x2F;index.html">
+  <meta name="description" content="Linux基础此文为个人学习笔记，主要内容参考《鸟哥的LINUX私房菜》第四版。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;10&#x2F;Linux%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Rechard&#39;s Blog">
+<meta property="og:description" content="Linux基础此文为个人学习笔记，主要内容参考《鸟哥的LINUX私房菜》第四版。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-10T03:11:33.766Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Rechard&#39;s Blog" type="application/atom+xml">
@@ -139,76 +143,620 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/31/python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2019-10-31T02:38:18.865Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/31/python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E5%90%88%E9%9B%86/">python第三方库安装问题合集</a>
+    <h1 class="article-title" itemprop="name">
+      Linux基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/29/welcome/" class="archive-article-date">
-  	<time datetime="2019-10-29T10:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+        
+        <a href="/2020/02/10/Linux%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-02-10T03:09:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/29/welcome/">Test Post</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h1><p>此文为个人学习笔记，主要内容参考《鸟哥的LINUX私房菜》第四版。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Linux之父：Linus Torvalds.</p>
+<p>起源：想自己做一个UNIX（早期的操作系统，因为未开源），于是将开源的Minix优化后实现了操作系统的功能，并且发布到网上征求建议和修改。经过大量黑客和程序员的努力不断发展。</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><p>稳定（适合服务器使用）</p>
+<p>开源</p>
+<p>支持多用户</p>
+<p>具有良好的可移植性</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>虚拟机：oracle公司VitualBox</p>
+<p>版本：社区版CentOS（下载地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/</a> ）</p>
+<h2 id="三、命令"><a href="#三、命令" class="headerlink" title="三、命令"></a>三、命令</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>command   [options]   parameter1   parameter2 ……</p>
+<h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><p>快捷键：</p>
+<p>​    tab 键： 直接按下两次：输出所有可执行命令</p>
+<p>​                   有字母按下 一次：补全命令</p>
+<p>​                   有字母按下两次：输出字母开头的所有可执行命令</p>
+<p>​    ctrl + c ： 中断目前的命令</p>
+<p>​    ctrl + d ： exit（键盘输入结束，End of File）</p>
+<p>日期    date  （Linux系统的时间）</p>
+<p>​        自定义输出格式：   date  +%Y%m%d</p>
+<p>日历（calendar）    cal    </p>
+<p>​        cal 2020</p>
+<p>​        cal [month] [year]    (注意顺序)</p>
+<p>修改硬件时间：hwclock –set –date=”20/01/26 14:55”</p>
+<p>​                或者：clock –set –date=”20/01/26 14:55”</p>
+<p>同步系统时间和硬件时间：hwclock –hctosys</p>
+<p>​                或者：clock –hctosys</p>
+<p>将硬件时间设置为系统时间：clock -s</p>
+<p>查看系统的运作时间：uptime</p>
+<p>查看命令信息：</p>
+<p>​                    （1）man (manual)  command</p>
+<p>​                            进入手册后空格下翻，q退出</p>
+<p>​                            /date（查找字符串‘date’），查找后：n（下一个匹配的字符串）</p>
+<p>​                            命令后面的编号含义：（如DATE(1)）：man man有详细说明</p>
+<p>​            查看系统中关于man的说明文件： man -f man</p>
+<p>​            关键字搜索：内容中有关键字‘test’的文件： man -k test</p>
+<p>​                    （2）：info command</p>
+<p>​                                  带<em>号表示结点，光标移动到\</em>按下ENTER可以跳转到该页面</p>
+<p>​                    （3）：软件的帮助文档一般可以在目录 /usr/share/doc 下查看</p>
+<p>​                                usr：unix system resources（may be user system resources）</p>
+<p>查看在线成员：who</p>
+<p>查看网络联机状态：netstat</p>
+<p>查看后台程序：ps（process snapshot）</p>
+<p>查看内核版本：uname -r</p>
+<p>查看系统架构：uname -m</p>
+<p>用户切换成管理员：su root （substitute user，需要输入管理员密码）</p>
+<p>​                                换回普通用户：su username</p>
+<p>​                                切换并使用新用户的环境变量：su -  username</p>
+<p>将数据同步写入硬盘中：sync（synchronize）管理员：整个系统；一般用户：自己的数据</p>
+<p>​            关机时会自动执行</p>
+<p>关机： halt、poweroff</p>
+<p>​            shutdown -h now （立刻执行）</p>
+<p>​            shutdown -h  22：22 （下一个22：22分关机）</p>
+<p>​            shutdown -h +10 （十分钟后自动关机）</p>
+<p>​            shutdown -r now  (立刻重启)</p>
+<p>​            shutdown -r +30 ‘This message will be sended to all user online’  (30分钟后关机并此刻将消                                   息发送给所有在线用户)</p>
+<p>​            shutdown -k now ‘This system will reboot’   (发送警告，但不关机)</p>
+<p>​            shutdown -c   （取消关机）</p>
+<p>重启：reboot</p>
+<p>以上关机重启命令都是通过调用系统服务命令实现：systemctlf</p>
+<p>​            关机：systemctl   poweroff               重启：systemctl   reboot        ……</p>
+<h3 id="DAY2"><a href="#DAY2" class="headerlink" title="DAY2"></a>DAY2</h3><p>文件与目录的查看：ls [-al]   fileName/directory</p>
+<p>​                                      a：所有文件；l：详细信息（权限，大小，所属用户、组，修改时间，文件名）</p>
+<p>​                                   ll：列出文件详细信息（除了隐藏文件）后面没有指定文件或路径则默认当前路径</p>
+<p>更改文件所属用户、组：chgrp [-R]  fileName/directory</p>
+<p>​                                            chown [-R]  userName   fileName</p>
+<p>​                                            chown [-R]  userName : groupName  fileName</p>
+<p>修改权限：chmod [-R]   xyz  fileName/directory</p>
+<p>​                    (1)chmod 777 test.txt</p>
+<p>​                    (2)chmod [ugoa][+-=][rwx]  fileName/directory</p>
+<p>​                            chmod u+x test.txt</p>
+<p>​                            chmod u=rwx,go=r test.txt</p>
+<p>​    r:能查看；x：能进入（执行）路径（文件）内</p>
+<p>. 当前目录</p>
+<p>.. 上一级目录</p>
+<p>- 前一个工作目录</p>
+<p>~ 当前用户的家目录</p>
+<p>cd（change directory）</p>
+<p>pwd（print working directory） [-P]   -P表示显示真实路径，而非link</p>
+<p>输出环境变量：echo $PATH</p>
+<p>添加环境变量：PATH=”${PATH}:/test“</p>
+<p>创建目录：mkdir [-mp] directoryName</p>
+<p>​                        mkdir -m 744 test  (创建时设置权限)；p：递归创建</p>
+<p>删除空目录：rmdir [-p]</p>
+<p>​        非空：    rm -r directoryName</p>
+<p>复制：cp [-aipr] source  destination</p>
+<p>​                -a 复制所有文件信息（权限、链接、递归复制）</p>
+<p>​                 -i 目标文件已经存在时先询问</p>
+<p>​                 -p 将文件的权限、用户、时间一起复制（常用来备份）</p>
+<p>​                 -r 递归复制</p>
+<p>​                 -d 复制链接文件的属性（即指向实际链接的文件）</p>
+<p>​                 -v 显示过程</p>
+<p>删除：rm [-fir] fileName/dirName</p>
+<p>​                f：强制</p>
+<p>​                i：是否询问</p>
+<p>​                r：递归删除</p>
+<p>移动（重命名）：(1)mv [-fiu] source destination</p>
+<p>​                                                f：强制移动，有相同文件时，目标文件删除</p>
+<p>​                                                u ：update目标文件（两者中保留时间最新的那个）</p>
+<p>​                                        重命名：mv test.txt test2.txt</p>
+<p>​                                (2)mv [options] source1 source2… directory</p>
+<p>​                                    将一堆文件移动到目录内</p>
+<p>查看文件内容：</p>
+<p>​                        (1) （concatenate）cat [-An] fileName</p>
+<p>​                                                                -A：显示特殊符号</p>
+<p>​                                                                -n：打印行号（-b：空白行不显示行号，非空白行显示行号）</p>
+<p>​                                                            反向输出：tac</p>
+<p>​                        (2) nl [-bnw]  fileName   (自动输出行号)</p>
+<p>​                                -b a : 空行也显示行号</p>
+<p>​                                -b t : 空行不显示行号</p>
+<p>​                                -n ln/rn : 在左侧/右侧显示行号</p>
+<p>​                                -n rz : 在右侧显示行号，且不足6位补0</p>
+<p>​                                -w  n: 行号的位数（n）    </p>
+<p>​    </p>
+<p>​    可翻页：</p>
+<p>​            (1) more</p>
+<p>​                    space:下翻一页</p>
+<p>​                    Enter:下翻一行</p>
+<p>​                    /string:查找字符串</p>
+<p>​                    :f   显示文件名和目前的行数</p>
+<p>​                    q:退出</p>
+<p>​                    b（ctrl+b）往回翻页</p>
+<p>​            (2) less</p>
+<p>​                    space：下翻一页                </p>
+<p>​                    pgUp：向上翻页</p>
+<p>​                    pgDw：向下翻页</p>
+<p>​                    /string：向下查找字符串</p>
+<p>​                    ？string：向上查找字符串</p>
+<p>​                    g：跳到第一行</p>
+<p>​    显示部分：</p>
+<p>​                (1) head [-n number]</p>
+<p>​                        显示前面number行（默认显示20行）</p>
+<p>​                (2) tail [-n number]</p>
+<p>​                        显示后面number行（默认显示10行）</p>
+<p>​                显示第11行到第20行：（管道）这时候[-n number]不能省略</p>
+<p>​                        head  -n 20 test.txt | tail -n 10</p>
+<p>​                上面的内容显示行号：</p>
+<p>​                        cat -n test.txt | head -n 20 | tail -n 10</p>
+<p>查看非文本文件：od -t [-acdfox]</p>
+<p>​                                -a 默认字符输出；-c ASCII码输出</p>
+<p>​                                d(decimal)   f(floating)  o(octal)   x(hexadecimal)</p>
+<h3 id="DAY3"><a href="#DAY3" class="headerlink" title="DAY3"></a>DAY3</h3><p>touch: (1) 创建新文件</p>
+<p>​            (2) 修改文件的修改时间和读取时间为当前时间</p>
+<p>默认权限： 文件的默认权限：-rwxr–r–</p>
+<p>​                    目录的默认权限：-rwxr-xr-x (x就是能进入该目录)</p>
+<p>​                    查看默认权限：umask   (数字就是没有的权限，第一个0表示八进制？)</p>
+<p>​                    设置默认权限：umask [1-7][1-7][1-7]</p>
+<p>了解：隐藏属性：配置隐藏属性(管理员账号)：chattr</p>
+<p>​                                查看隐藏属性：lsattr [-adR] fileName/dirName</p>
+<p>​            特殊权限：SUID,SGID,SBIT</p>
+<p>查看文件类型：file fileName</p>
+<p>查找命令所在的文件：which [-a] command</p>
+<p>查找文件：(1) whereis [-lbmsu] fileName/dirName</p>
+<p>​                            l    列出目录，在列出的目录中查询</p>
+<p>​                            b   只查找二进制文件</p>
+<p>​                            m  在manual路径下查找</p>
+<p>​                            s    只查找源文件</p>
+<p>​                            u    除了上述3种的其他特殊文件</p>
+<p>​                    (2) locate [-ir]  keyword</p>
+<p>​                            i  忽略大小写</p>
+<p>​                            c 只输出查找到的数量</p>
+<p>​                            -l  5   只输出5行</p>
+<p>​                            -S 输出locate所使用的数据库的相关信息</p>
+<p>​                            -r 后面的关键词可以接正则表达式</p>
+<p>​                    (3) find [path] [options] [action]</p>
+<p>​                            1.-atime、-ctime、-mtime（读取时间、状态时间、修改时间）</p>
+<p>​                                过去24小时内修改的文件：</p>
+<p>​                                    find / -mtime 0</p>
+<p>​                            2.-uid  Unum、-gid  Gnum、-username username、-groupname Gname</p>
+<p>​                                -nouser、-nogroup</p>
+<p>​                            3.-name filename、-size [+-]size、…</p>
+<p>​                            4.[action]:   -exec command \</p>
+<p>​                                    find . test.txt -exec ls -l {} \</p>
+<p>​                                        其中{}是find查找的内容</p>
+<p>创建硬链接（不能跨文件系统，新建inode）：ln  源文件  目标目录</p>
+<p>创建软链接（快捷方式,指向inode）：ln -s 源文件 目标文件</p>
+<p>查看整体磁盘使用量：df [-hi]</p>
+<p>​                                        h:较易阅读的形式；i:以inode数量显示</p>
+<p>​                                        du -h  查看当前目录所占磁盘空间，以较易阅读的形式</p>
+<p>查看磁盘分区情况（可以看成list block device）：lsblk</p>
+<p>​                                                                                        -f （==lskid）查看文件系统名称</p>
+<p>压缩文件（压缩后原文件消失，可以被windows系统的解压软件解压）：gzip fileName</p>
+<p>解压缩：gzip -d</p>
+<p>打包文件：tar [-zcvp]   -f file.tar.gz file1 file2 …</p>
+<p>​                        z  使用gzip的方式压缩</p>
+<p>​                        c  建立打包文件</p>
+<p>​                        v 显示过程</p>
+<p>​                        f  后面接打包后的文件名</p>
+<p>​                        p 保留原文件的权限和属性</p>
+<p>解包：tar [-zxv] -f file.tar.gz -C dirName</p>
+<p>​                x 将打包文件解包</p>
+<p>​                -C 后面接打包后文件的存放目录</p>
+<p>只解压其中的一个：</p>
+<p>​                先查询：tar -ztv -f file.tar.gz | grep fileName</p>
+<p>​                再解压单个：tar -zxv -f file.tar.gz fileName(这里的fileName和查询的fileName一直，包括                                            目录)</p>
+<p>grep [-inv] keyWord fileName 不打开文件查询文件内容</p>
+<p>​        i 忽略大小写</p>
+<p>​        n 显示行号</p>
+<p>​        v 输出不带关键字的行</p>
+<p>​        -A3 输出包括结果所在行之后的3行</p>
+<p>​        -B4 输出包括结果所在行之前的4行</p>
+<p>了解： XFS系统备份还原</p>
+<p>​                        备份：xfsdump   还原：xfsrestore</p>
+<p>​            建立镜像文件：mkisofs</p>
+<p>​            刻录光盘：wodim</p>
+<h3 id="DAY4"><a href="#DAY4" class="headerlink" title="DAY4"></a>DAY4</h3><p>vi</p>
+<p>一般模式-command mode（一般命令模式）</p>
+<p>编辑模式-insert mode（i、o、a（assert）、r（replace））</p>
+<p>命令行模式-command—line mode（：、/、？）</p>
+<p>command mode：  移动光标：</p>
+<p>​                                        ctrl+f 屏幕向下移动一页</p>
+<p>​                                        ctrl+b 屏幕向上移动一页</p>
+<p>​                                        num+SPACE 光标移动本行num个字符</p>
+<p>​                                        0或者HOME   光标移动到本行第一个字符</p>
+<p>​                                        $或者END   光标移动到本行末尾</p>
+<p>​                                        gg 光标移动到文件的最后一行</p>
+<p>​                                        G 光标移动到第一行</p>
+<p>​                                        num+ENTER 光标向下移动num行</p>
+<p>​                                    查找与替换：</p>
+<p>​                                            /string  光标向下查找string</p>
+<p>​                                            ？string 光标向上查找string</p>
+<p>​                                            ：num1，num2s/word1/word2/g </p>
+<p>​                                                            将num1到num2行中的word1替换成word2</p>
+<p>​                                    删除、复制和粘贴：</p>
+<p>​                                            X 删除光标前一个字符   x 删除光标所在的字符</p>
+<p>​                                            dd 删除一整行</p>
+<p>​                                            yy 复制一整行   numyy  复制光标和一下的共num行</p>
+<p>​                                            p  复制</p>
+<p>​                                    其他：</p>
+<p>​                                            u：撤销（恢复上一个操作）</p>
+<p>​                                            ctrl+r或者.  重复一次上一个操作</p>
+<p>command-line mode：</p>
+<p>​                                    ：wq  保存退出    ：q 退出      后面接！强制保存或退出</p>
+<p>​                                    ：r fileName   将fileName的数据加载到光标后一行</p>
+<p>​                                    ：num1，num2 w filename  将num1到num2的数据另存为fileName</p>
+<p>​                                    ：！ command 暂时退出vi执行命令</p>
+<p>​                                    ：set nu 显示行号  ：set nonu  不显示行号</p>
+<p>vim（高级版的vi）</p>
+<p>多文件编辑： vim file1  file2 …</p>
+<p>​                    ：n 编辑下一个文件   ：N 编辑上一个文件   ：files 列出所有文件</p>
+<p>多窗口编辑： ：sp [fileName]</p>
+<p>​                        切换窗口：ctrl+w+上下方向键</p>
+<p>关键字补全：ctrl+x  -&gt; ctrl+n  目前编辑的内容作为关键字进行补全</p>
+<p>将换行符转换为dos的换行符： unix2dos  [-kn] file [new file]</p>
+<p>​                                                        k 保留原本的修改时间</p>
+<p>​                                                        n 保留旧文件                                    </p>
+<p>编码转换：iconv –list  查看支持的编码格式</p>
+<p>​                    file fileName 查看文件的编码格式</p>
+<p>​                    iconv -f 原本编码 -t 新编码 fileName [-o newFile] </p>
+<p>​                                            -o newFile 保留原本的文件并将改变编码后的内容保存到新文件</p>
+<p>内核：管理计算机硬件</p>
+<p>shell：用户与内核沟通的桥梁,命令行模式下我们与系统沟通的一个工具接口</p>
+<p>C shell（类似c语言的shell）：csh</p>
+<p>Linux默认的shell：bash</p>
+<p>了解bash：</p>
+<p>​    查看命令的别名：alias</p>
+<p>​    查看命令类型：type command</p>
+<p>​    命令太长时，输入\ + ENTER换行输入（转义ENTER），一行多个命令：用分号隔开</p>
+<p>变量：</p>
+<p>​        输出：echo  $HOME、echo $PATH</p>
+<p>​        定义（新建）：myname=wei</p>
+<p>​                                   echo ${myname}   #查看变量值</p>
+<p>​                                    先执行命令再赋值：</p>
+<p>​                                        var1=$(command)</p>
+<p>​                                    先运算再赋值：</p>
+<p>​                                        var2=$( ( 运算 ) )</p>
+<p>​                    变量赋值时，使用双引号“”，则里面的$Variable变量可以继续引用</p>
+<p>​                            如果只是单纯的dollar符号，则使用单引号‘$string’</p>
+<p>​        变量内容扩增：比如增加环境变量：PATH=${PATH}:变量</p>
+<p>​        删除：unset 变量名</p>
+<p>​        </p>
+<p>​        使用键盘输入变量：read [-pt] variable</p>
+<p>​                                            p 后面接提示语   t后面接限定时间</p>
+<p>​                                    e.g. read -p “please enter your name :” -t 30 yname</p>
+<p>​        声明变量类型：declare [-aixr] variable</p>
+<p>​                                    a 变量是array数组</p>
+<p>​                                    i 变量是integer整数</p>
+<p>​                                    x 变量是环境变量（全球变量）类似与export</p>
+<p>​                                    r 变量不可改变，不可赋值和unset</p>
+<p>​                                    declare +r variable（+表示取消声明变量类型，即删除类型）</p>
+<p>​                        输出数组：</p>
+<p>​                                    echo “${var[1]}, ${var[2]}, ${var[3]},…”</p>
+<p>​        变量内容的删除与替换：略</p>
+<p>查看所有环境变量：env</p>
+<p>查看所有变量：set</p>
+<p>查看当前进程id：echo $$</p>
+<p>环境变量与普通变量：环境变量能被其他子进程继承</p>
+<p>想要父进程的变量给子进程使用，就可以使用export导入变量</p>
+<p>​    建立子进程：bash</p>
+<p>​    从父进程导入变量：export 变量名</p>
+<p>​    退出子进程：exit</p>
+<p>了解：</p>
+<p>显示linux支持的语系：locale</p>
+<p>​            保存的文件夹：/etc/locale.conf</p>
+<p>限制用户使用系统资源：ulimit</p>
+<p>命令别名（自定义命令名称）：alias 别名=命令</p>
+<p>​                alias lm=‘ls -al’  直接输入lm就可以执行命令‘ls -al’</p>
+<p>​                unalias lm         取消别名</p>
+<p>bash 自制登陆界面信息：cat /etc/issue 查看登录界面信息</p>
+<p>​                                            自定义：修改该文件，具体略</p>
+<p>系统整体的设置文件：/etc/profile</p>
+<p>用户自己的设置文件：~/.bash_profile</p>
+<h3 id="DAY4-1"><a href="#DAY4-1" class="headerlink" title="DAY4"></a>DAY4</h3><p>通配符：</p>
+<p>​                *：匹配任意个任意字符</p>
+<p>​                ？：匹配一个字符</p>
+<p>​                []：匹配括号内的一个字符</p>
+<p>​                [^]：取反，即没有括号内的字符就是匹配成功</p>
+<p>其他符号：</p>
+<p>​                # 注释符号</p>
+<p>​                \ 转义</p>
+<p>​                ；连续命令分隔符</p>
+<p>标准输入： &lt;或&lt;&lt;  前者是覆盖，后者是追加</p>
+<p>标准输出： &gt;或&gt;&gt;   </p>
+<p>标准错误输出：2&gt;或2&gt;&gt;</p>
+<p>ll &gt; queryResult.txt   将ll查询的结果作为输入，保存到queryResult.txt中，若文件不存在则新建</p>
+<p>command &gt; success.txt 2&gt; error.txt  将正确的结果输入success.txt，将错误的信息输入error.txt</p>
+<p>command &gt; all.txt 2&gt;&amp;1 （或者是command &amp;&gt; all.txt）无论正确错误的内容都输入用一个文件内</p>
+<p>命令导向：</p>
+<p>​        linux中如果命令执行正确就会返回一个 $?=0 的值，错误则返回 $?≠0 具体值视情况而定</p>
+<p>​        cmd1 &amp;&amp; cmd2 如果cmd1正确执行完毕，则执行cmd2</p>
+<p>​        cmd1 || cmd2 如果cmd1执行错误，则执行cmd2</p>
+<p>管道命令（pipe）：  |</p>
+<p>​        每个管道后面接的第一个数据必须是命令，且是必须能接受标准输入的数据命令        </p>
+<p>​        如选取命令：cut、grep</p>
+<p>​                echo ${PATH} | cut -d “：”  -f 3，5  选取第3个到第5个以‘：’隔开后的环境变量</p>
+<p>​                            -d 后面接分割符   -f 范围</p>
+<p>​                            -c num1-num2  选取指定下标的字符</p>
+<p>​                </p>
+<p>​                grep [-cinv] [–color=auto]要查找的字符 fileName</p>
+<p>​                        c 查找次数；i 忽略大小写；n 显示行号； v 取反，没有要查找的字符则匹配成功</p>
+<p>​        </p>
+<p>​        排序命令：sort、wc、uniq</p>
+<p>​                略</p>
+<p>双向重定向：将命令的数据流既保存到文件内，同时又输出到屏幕上（标准输出）</p>
+<p>​        tee [-a]  fileName</p>
+<p>​                a:将数据追加到fileName而不是清空fileName</p>
+<p>管道中的 ‘-’ 减号:</p>
+<p>​        tar -zcv -f - /home |tar -zxv -f - -C dirName</p>
+<p>​        表示前面压缩的文件不保存，直接通过管道给下一个tar解压</p>
+<p>（基础）正则表达式：处理字符串的方法</p>
+<p>​                ^表示首个字符（和[^]内的含义不一样）</p>
+<p>​                $ 行尾符号（和变量不同，这个行尾符号是在字符后面而不是前面）</p>
+<p>​                [:alnum:] 英文大小写字母及数字</p>
+<p>​                [:alpha:]  英文大小写</p>
+<p>​                [:digit:]  数字0-9</p>
+<p>​                [:upper:] 大写字母A-Z</p>
+<p>​                [:lower:] 小写字母a-z</p>
+<p>​                o\{2,5\} 匹配2-5个o  （注意要\转义{}）</p>
+<p>​                ……</p>
+<p>​                </p>
+<p>拓展正则表达式：</p>
+<p>​                + 一个或一个以上</p>
+<p>​                ？0个或1个</p>
+<p>​                | 或者（注意管道命令前后是有空格的，这里 0|1 没有空格表示0或者1）</p>
+<p>​                ……</p>
+<p>了解：sed，awk 数据处理</p>
+<p>shell脚本</p>
+<p>​        用shell写的程序，一堆命令集合，就像dos的批处理文件（.bat）</p>
+<p>执行程序：</p>
+<p>​                直接./test.sh  或者bash test.sh 或 sh test.sh，或者加入环境变量等</p>
+<p>​    要想脚本运行完毕后，脚本的变量能变成全球变量，也就是在父进程的shell中运行脚本：</p>
+<p>​            source test.sh</p>
+<p>shell脚本的默认变量：</p>
+<p>​    shell脚本可以直接在.sh 后面接参数（像命令一样带参数）</p>
+<p>​            在脚本中，可以使用这些参数，类似于函数的参数可以传递使用</p>
+<p>​            其中：$0  shell的脚本文件名</p>
+<p>​                        $# 用户输入的参数个数</p>
+<p>​                        $n 第n个参数</p>
+<p>​            比如脚本中：echo “The script name is ${0}” # 输出脚本的名称</p>
+<p>编写程序：hello.sh</p>
+<p>​    #！/bin/bash</p>
+<p>​    #Program:</p>
+<p>​    #                This program shows  “Hello,world!” in your screen.</p>
+<p>​    #History:</p>
+<p>​    #2020\1\17    wei    First release</p>
+<p>​    PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</p>
+<p>​    export PATH</p>
+<p>​    echo -e “Hello,world! \a \n”</p>
+<p>​    exit 0</p>
+<p>1.文件第一行中#！/bin/bash 是声明脚本使用的shell名称，必须要有；</p>
+<p>2.后面的都是注释声明程序的作用，作者，时间等；</p>
+<p>3.注释后面内容第一行PATH是声明主要的环境变量</p>
+<p>4.echo是主程序内容</p>
+<p>5.exit是执行结果告知，也就是告诉系统执行完毕了，返回一个0给系统</p>
+<p>测试：test [options] filename  （通常后面要加上 &amp;&amp; echo ‘yes’ || echo ‘no’）</p>
+<p>​            文件参数：</p>
+<p>​                -e 文件是否存在</p>
+<p>​                -f 文件是否为file</p>
+<p>​                -d 文件是否为目录</p>
+<p>​                -L 文件是否为链接</p>
+<p>​            文件权限：</p>
+<p>​                -r 是否可读  -w 是否可编辑  -x 是否可执行</p>
+<p>​                -s 是否为非空</p>
+<p>​            数值判断： test n1 -eq n2</p>
+<p>​                -eq 是否相等</p>
+<p>​                -ne 是否不等</p>
+<p>​                -gt n1大于n2 greater than</p>
+<p>​                -lt  n1小于n2 less than</p>
+<p>​                -ge n1大于等于n2 greater equal</p>
+<p>​                -le  小于等于</p>
+<p>​            字符串判断：test -z string</p>
+<p>​                -z 是否为空</p>
+<p>​                test str1==str2 是否相等；test str1！=str2是否不相等</p>
+<p>​            与或非：</p>
+<p>​                与（-a）：test n1 -eq n2 -a n1 -gt n3</p>
+<p>​                或（-o）</p>
+<p>​                非 （！）</p>
+<p>条件判断：</p>
+<p>​    结构：if  [ 条件判断式 ]；then</p>
+<p>​                    command</p>
+<p>​                elif [ 条件判断式 ];then</p>
+<p>​                    command</p>
+<p>​                else</p>
+<p>​                    command</p>
+<p>​                fi</p>
+<p>​    </p>
+<p>多层次条件判断：</p>
+<p>​    结构：case $变量名称 in</p>
+<p>​                    “第一个变量内容”）</p>
+<p>​                            程序段</p>
+<p>​                            ；；</p>
+<p>​                    “第二个变量内容”）</p>
+<p>​                            程序段</p>
+<p>​                            ；；</p>
+<p>​                    ……</p>
+<p>​                    *）</p>
+<p>​                            程序段</p>
+<p>​                            ；；</p>
+<p>​                esac</p>
+<p>函数：shell的执行是自上而下的，所以函数必须放在程序的最前面</p>
+<p>​    定义：function fname（）{</p>
+<p>​                        程序段</p>
+<p>​                }</p>
+<p>​    调用：fname</p>
+<p>​    函数也有默认变量：$0 是函数名（注意编写程序时不要将脚本的默认变量与函数的默认变量混淆）</p>
+<p>循环：</p>
+<p>​    while结构：while [ condition ] </p>
+<p>​                        do </p>
+<p>​                                程序段</p>
+<p>​                        done</p>
+<p>​    # 当condition 成立则执行循环</p>
+<p>​    </p>
+<p>​    until结构：until [ condition ]</p>
+<p>​                        do</p>
+<p>​                            程序段</p>
+<p>​                        done</p>
+<p>​    # 当condition成立时，就终止循环</p>
+<p>​    当知道循环次数时：</p>
+<p>​    for结构：for var in con1 con2 con3 ……</p>
+<p>​                    do</p>
+<p>​                            程序段</p>
+<p>​                    done</p>
+<p>​    第二种：for （ （i=0； i&lt;=${num}; i=i+1） ）</p>
+<p>​                    do</p>
+<p>​                            程序段</p>
+<p>​                    done</p>
+<p>随机数变量：${RANDOM}</p>
+<p>脚本的调试：</p>
+<p>​            sh [-nvx]  script.sh</p>
+<p>​                n 不执行脚本，仅查询语法错误</p>
+<p>​                v 执行脚本前，将脚本输出到屏幕上</p>
+<p>​                x 只输出使用到的脚本，相当于单步调试</p>
 
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/10/Linux%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/02/10/Python%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux基础"><span class="toc-number">1.</span> <span class="toc-text">Linux基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">1.1.2.</span> <span class="toc-text">优点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、命令"><span class="toc-number">1.3.</span> <span class="toc-text">三、命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式"><span class="toc-number">1.3.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY1"><span class="toc-number">1.3.2.</span> <span class="toc-text">DAY1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY2"><span class="toc-number">1.3.3.</span> <span class="toc-text">DAY2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY3"><span class="toc-number">1.3.4.</span> <span class="toc-text">DAY3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY4"><span class="toc-number">1.3.5.</span> <span class="toc-text">DAY4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAY4-1"><span class="toc-number">1.3.6.</span> <span class="toc-text">DAY4</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -233,8 +781,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
